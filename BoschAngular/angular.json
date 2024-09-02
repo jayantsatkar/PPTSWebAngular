@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BoschPPTSAngular": {
+    "BoschAngular": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/bosch-pptsangular",
+            "outputPath": "dist/bosch-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,12 +39,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -64,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "BoschPPTSAngular:build:production"
+              "buildTarget": "BoschAngular:build:production"
             },
             "development": {
-              "buildTarget": "BoschPPTSAngular:build:development"
+              "buildTarget": "BoschAngular:build:development"
             }
           },
           "defaultConfiguration": "development"
