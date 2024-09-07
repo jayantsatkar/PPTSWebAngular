@@ -12,6 +12,9 @@ import {ToastrModule} from 'ngx-toastr';
 import { AuthInterceptor } from './Services/auth.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
   return() => configService.loadConfig();
@@ -28,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(),
@@ -38,6 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    TableModule,
+    DropdownModule
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},

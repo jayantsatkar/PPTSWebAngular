@@ -6,7 +6,6 @@
     
         </h2>
     
-        <i id="BF" class="fa fa-star-o" title="Click here to add in favorites" (click)="AddTofavorites()"></i>
       </div>
     
     </div>
@@ -19,10 +18,9 @@
         <div class="d-flex flex-row-reverse bd-highlight">
     
           <button type="button" class="btn btn-primary btn-sm pull-right" style="margin-left: 2%;"
-            [disabled]="isFormReadOnly" (click)="exportexcel()"><span class="fa fa-upload"></span>
+            (click)="exportexcel()"><span class="fa fa-upload"></span>
             {{ 'bom.exportButton' | translate}} </button>
-          <span style="margin-top:0.5%"> <input type="checkbox" (change)="changeEnabled($event)" class="form-check-input"
-              [checked]='isLatest'> &nbsp;{{ 'bom.latestBOM' | translate}} </span>
+          
         </div>
     
       </div>
@@ -65,42 +63,42 @@
             <tr>
     
               <th>{{ 'bom.id' | translate}}</th>
-              <th matTooltip="{{ 'bom.partNumber' | translate}}"><p-columnFilter ngDefaultControl [showMenu]="false"
+              <th><p-columnFilter ngDefaultControl [showMenu]="false"
                   [(ngModel)]="csPartNumber" (input)="onPartNumberChange($event)"
                   placeholder="{{ 'bom.partNumber' | translate}}" type="text" field="PartNo"></p-columnFilter></th>
-              <th matTooltip="{{ 'bom.productRevision' | translate}}"><p-columnFilter matchMode="contains" ngDefaultControl
+              <!-- <th matTooltip="{{ 'bom.productRevision' | translate}}"><p-columnFilter matchMode="contains" ngDefaultControl
                   [(ngModel)]="csRevision" (input)="onRevisionChange($event)" [showMenu]="false"
                   placeholder="{{ 'bom.productRevision' | translate}}" type="text" field="ProductRevision"></p-columnFilter>
-              </th>
-              <th matTooltip="{{ 'bom.factory' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
+              </th> -->
+              <!-- <th matTooltip="{{ 'bom.factory' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
                   [(ngModel)]="csFactory" (input)="onFactoryChange($event)" placeholder="{{ 'bom.factory' | translate}}"
                   type="text" field="Factory"></p-columnFilter></th> 
               <th matTooltip="{{ 'bom.description' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
                   [(ngModel)]="csDescription" (input)="onDescriptionChange($event)"
                   placeholder="{{ 'bom.description' | translate}}" type="text" field="Description"></p-columnFilter>
               </th>
-              <th>{{ 'bom.actions' | translate}}</th>
+              <th>{{ 'bom.actions' | translate}}</th> -->
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-bom let-i="rowIndex">
             <tr>
               <td>{{bom.SeqNumber}}</td>
               <td>{{bom.PartNo}}</td>
-              <td>{{bom.ProductRevision}}</td>
+              <!-- <td>{{bom.ProductRevision}}</td>
               <td>{{bom.Factory}}</td>
               <td>{{bom.Description}}</td>
-              <td>
-                <a class="button"
+              <td> -->
+                <!-- <a class="button"
                   (click)="viewBomDetails(bom.BomId , bom.PartNo , bom.ProductRevision , bom.Description , bom.Factory , bom.OrganizationId)"
                   ngbTooltip="View BOM Details">View</a>
-                <i aria-hidden="true" routerLinkActive="activebutton"></i>
-              </td>
+                <i aria-hidden="true" routerLinkActive="activebutton"></i> -->
+              <!-- </td> -->
             </tr>
           </ng-template>
         </p-table>
       </div>
     </div>
-    <div *ngIf="isloading" class="loading-indicator">
+    <!-- <div *ngIf="isloading" class="loading-indicator">
       <mat-progress-spinner style="color:#275f8e !important;" mode="indeterminate"></mat-progress-spinner>
-    </div>
+    </div> -->
     </body>
