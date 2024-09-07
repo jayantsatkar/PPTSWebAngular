@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ConfigService } from './config.service';
+import { Router } from '@angular/router';
 //import { JsonConfigService } from '../Services/json-config.service';
 @Injectable({
     providedIn: 'root'
@@ -22,7 +23,9 @@ export class AuthService {
         fieldValue: ''
     };
     checkDupliateValue: any;
-    constructor(private http: HttpClient, private configService: ConfigService,) {
+    constructor(private http: HttpClient, private configService: ConfigService,
+        private router: Router
+    ) {
         this.userID = Number(localStorage.getItem('userId')?.toString());
     }
 
@@ -132,5 +135,10 @@ export class AuthService {
     }
     fetchDataform() {
         return this.http.get(`${this.configService.getConfig().commonUrl}/Form/GetAssignFormToUser/${Number(localStorage.getItem('userId')?.toString())}`);
+    }
+
+    logOut() {
+        sessionStorage.removeItem("token");
+        this.router.navigate(["/user/login"]);
     }
 }

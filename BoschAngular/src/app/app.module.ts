@@ -7,8 +7,9 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { FloatReportComponent } from './Reports/float-report/float-report.component';
 import { ConfigService } from './Services/config.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {ToastrModule} from 'ngx-toastr';
+import { AuthInterceptor } from './Services/auth.interceptor';
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
   return() => configService.loadConfig();
 }
@@ -22,9 +23,10 @@ export function initialiseApp(configService: ConfigService):()=> Promise<void>{
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MegaMenuModule
+    ToastrModule.forRoot()
   ],
   providers: [
+    {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},
     { provide :LocationStrategy, useClass: HashLocationStrategy},
     {
       provide : APP_INITIALIZER,
