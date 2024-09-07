@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { JsonConfigService } from '../Services/json-config.service';
+import { ConfigService } from './config.service';
+//import { JsonConfigService } from '../Services/json-config.service';
 @Injectable({
     providedIn: 'root'
 })
@@ -21,7 +22,7 @@ export class AuthService {
         fieldValue: ''
     };
     checkDupliateValue: any;
-    constructor(private http: HttpClient, private jsonService: JsonConfigService,) {
+    constructor(private http: HttpClient, private configService: ConfigService,) {
         this.userID = Number(localStorage.getItem('userId')?.toString());
     }
 
@@ -34,7 +35,7 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.get(requestUrl, headerReq ? headerReq : httpOptions);
+        return this.http.get(`${this.configService.getConfig().commonUrl}${requestUrl}`, headerReq ? headerReq : httpOptions);
     }
 
 
@@ -47,7 +48,7 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.post<any>(requestUrl, requestBody, httpOptions);
+        return this.http.post<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, requestBody, httpOptions);
     }
 
 
@@ -61,7 +62,7 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.post<any>(requestUrl, requestBody, httpOptions).pipe(catchError(this.handleError));
+        return this.http.post<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, requestBody, httpOptions).pipe(catchError(this.handleError));
     }
 
 
@@ -74,7 +75,7 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.put<any>(requestUrl, requestBody, headerReq ? headerReq : httpOptions);
+        return this.http.put<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, requestBody, headerReq ? headerReq : httpOptions);
     }
 
 
@@ -87,7 +88,7 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.put<any>(requestUrl, requestBody, headerReq ? headerReq : httpOptions);
+        return this.http.put<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, requestBody, headerReq ? headerReq : httpOptions);
     }
 
     deteleData(requestUrl: string, headerReq?: any): Observable<any> {
@@ -99,11 +100,11 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.delete<any>(requestUrl, headerReq ? headerReq : httpOptions);
+        return this.http.delete<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, headerReq ? headerReq : httpOptions);
     }
 
     getFile(requestUrl: string, requestBody?: any, headerReq?: any): Observable<Blob> {
-        return this.http.post(requestUrl, '', { responseType: 'blob' }).pipe(catchError(this.handleError));;
+        return this.http.post(`${this.configService.getConfig().commonUrl}${requestUrl}`, '', { responseType: 'blob' }).pipe(catchError(this.handleError));;
     }
 
     private handleError(errorResponse: HttpErrorResponse) {
@@ -123,18 +124,13 @@ export class AuthService {
                 'X-Frame-Options': 'DENY'
             })
         };
-        return this.http.post<any>(requestUrl, model, httpOptions);
+        return this.http.post<any>(`${this.configService.getConfig().commonUrl}${requestUrl}`, model, httpOptions);
     }
 
-
-    // constructor(private http: HttpClient, private jsonService: JsonConfigService) {
-
-    // }
     fetchData() {
-        // this.myGlobalModule= 
-        return this.http.get(`${this.jsonService.appConfig.commonUrl}/Module/GetModulesByUser/${Number(localStorage.getItem('userId')?.toString())}`);
+        return this.http.get(`${this.configService.getConfig().commonUrl}/Module/GetModulesByUser/${Number(localStorage.getItem('userId')?.toString())}`);
     }
     fetchDataform() {
-        return this.http.get(`${this.jsonService.appConfig.commonUrl}/Form/GetAssignFormToUser/${Number(localStorage.getItem('userId')?.toString())}`);
+        return this.http.get(`${this.configService.getConfig().commonUrl}/Form/GetAssignFormToUser/${Number(localStorage.getItem('userId')?.toString())}`);
     }
 }
