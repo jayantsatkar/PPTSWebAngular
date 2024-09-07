@@ -7,11 +7,18 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { FloatReportComponent } from './Reports/float-report/float-report.component';
 import { ConfigService } from './Services/config.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import {ToastrModule} from 'ngx-toastr';
 import { AuthInterceptor } from './Services/auth.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
   return() => configService.loadConfig();
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -23,7 +30,14 @@ export function initialiseApp(configService: ConfigService):()=> Promise<void>{
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},
