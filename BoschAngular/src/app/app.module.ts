@@ -13,6 +13,7 @@ import { AuthInterceptor } from './Services/auth.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     TableModule,
-    DropdownModule
+    DropdownModule,
+    ButtonModule
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},

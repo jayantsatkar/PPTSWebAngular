@@ -554,7 +554,7 @@
         "viewUOM": "View UOM"
     },
     "bom": {
-        "title": "BOM",
+        "title": "Float Report",
         "addButton": "Add",
         "importButton": "Import",
         "exportButton": "Export",
