@@ -15,6 +15,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
 
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
@@ -45,7 +47,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     TableModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    IconFieldModule,
+    InputIconModule
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},

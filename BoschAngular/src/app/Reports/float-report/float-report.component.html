@@ -1,104 +1,58 @@
-<body>
-    <div class="row" style="background-color:#edf0f0;">
-    
-      <div class="favorites-block" style="height: auto;">
-        <h2 style="margin-left: 6px;">{{ 'bom.title' | translate}}
-    
-        </h2>
-    
+<div class="card">
+  <p-table #dt2 dataKey="code" [value]="products" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" (onPage)="pageChange($event)"
+    [rowsPerPageOptions]="[5,10, 25, 50]" [globalFilterFields]="['code', 'name', 'category', 'quantity']">
+
+    <!-- <ng-template pTemplate="caption">
+      <div class="flex">
+        <p-iconField iconPosition="left" class="ml-auto">
+          <p-inputIcon>
+            <i class="pi pi-search"></i>
+          </p-inputIcon>
+          <input pInputText type="text"
+            placeholder="Search keyword" />
+             (input)="dt2.filterGlobal($event.target.value, 'contains')"
+        </p-iconField>
       </div>
-    
-    </div>
-    
-    <br>
-    <div class="container-fluid">
-    
-      <div class="row" style="margin-bottom: 1%;">
-    
-        <div class="d-flex flex-row-reverse bd-highlight">
-    
-          <button type="button" class="btn btn-primary btn-sm pull-right" style="margin-left: 2%;"
-            (click)="exportexcel()"><span class="fa fa-upload"></span>
-            {{ 'bom.exportButton' | translate}} </button>
-          
-        </div>
-    
-      </div>
-    </div>
-    
-    <div class="row" style="background-color: #e0e3e4;border: 0px;">
-      <div class="col-12 " style="overflow-x:hidden;  overflow-y: auto;">
-        <p-table #dt1 [value]="boms" [paginator]="true" [scrollable]="true" [paginator]="true" [first]="first" [rows]="rows"
-          [totalRecords]="totalRecords" [lazy]="true" (onPage)="onPageChange($event)"
-          [globalFilterFields]="['PartNo','ProductRevision','Factory','Description']" scrollHeight="450px"
-          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50,100]"
-          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-          styleClass="p-datatable-customers p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
-          <ng-template pTemplate="caption">
-            <div
-              class=" justify-content-between align-items-center no-gutters p-d-flex d-flex flex-row-reverse bd-highlight">
-              <div>
-                <span class="p-input-icon-left p-ml-auto">
-                  <i class="pi pi-search"></i>
-                  <input style="margin-right: 5px;" pInputText type="text" [(ngModel)]="searchKey"
-                    (input)="searchTable($event)" placeholder="Search keyword" />
-                  <div pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)">
-                  </div>
-                </span>
-              </div>
-              <div class="p-mb-3 p-flex-wrap">
-                <div class="p-mr-2 entry-display-box"> Show <p-dropdown appendTo="body" [options]="rowsPerPageOptions" [(ngModel)]="rows"
-                    (onChange)="onRowsChange($event)" [ngModelOptions]="{standalone: true}"
-                    [style]="{'width': '80px'}"></p-dropdown>
-                  entries</div>
-                <div>
-                  <ng-content select="[pTableHeader]"></ng-content>
-                </div>
-              </div>
-    
-            </div>
-    
-          </ng-template>
-          <ng-template pTemplate="header" style="background-color: aqua;">
-            <tr>
-    
-              <th>{{ 'bom.id' | translate}}</th>
-              <th><p-columnFilter ngDefaultControl [showMenu]="false"
-                  [(ngModel)]="csPartNumber" (input)="onPartNumberChange($event)"
-                  placeholder="{{ 'bom.partNumber' | translate}}" type="text" field="PartNo"></p-columnFilter></th>
-              <!-- <th matTooltip="{{ 'bom.productRevision' | translate}}"><p-columnFilter matchMode="contains" ngDefaultControl
-                  [(ngModel)]="csRevision" (input)="onRevisionChange($event)" [showMenu]="false"
-                  placeholder="{{ 'bom.productRevision' | translate}}" type="text" field="ProductRevision"></p-columnFilter>
-              </th> -->
-              <!-- <th matTooltip="{{ 'bom.factory' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
-                  [(ngModel)]="csFactory" (input)="onFactoryChange($event)" placeholder="{{ 'bom.factory' | translate}}"
-                  type="text" field="Factory"></p-columnFilter></th> 
-              <th matTooltip="{{ 'bom.description' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
-                  [(ngModel)]="csDescription" (input)="onDescriptionChange($event)"
-                  placeholder="{{ 'bom.description' | translate}}" type="text" field="Description"></p-columnFilter>
-              </th>
-              <th>{{ 'bom.actions' | translate}}</th> -->
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-bom let-i="rowIndex">
-            <tr>
-              <td>{{bom.SeqNumber}}</td>
-              <td>{{bom.PartNo}}</td>
-              <!-- <td>{{bom.ProductRevision}}</td>
-              <td>{{bom.Factory}}</td>
-              <td>{{bom.Description}}</td>
-              <td> -->
-                <!-- <a class="button"
-                  (click)="viewBomDetails(bom.BomId , bom.PartNo , bom.ProductRevision , bom.Description , bom.Factory , bom.OrganizationId)"
-                  ngbTooltip="View BOM Details">View</a>
-                <i aria-hidden="true" routerLinkActive="activebutton"></i> -->
-              <!-- </td> -->
-            </tr>
-          </ng-template>
-        </p-table>
-      </div>
-    </div>
-    <!-- <div *ngIf="isloading" class="loading-indicator">
-      <mat-progress-spinner style="color:#275f8e !important;" mode="indeterminate"></mat-progress-spinner>
-    </div> -->
-    </body>
+    </ng-template> -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th> <p-columnFilter 
+          type="text"
+          field="code" 
+          placeholder="Search by code" 
+          ariaLabel="Filter Code" /></th>
+        <th> <p-columnFilter 
+          type="text"
+          field="name" 
+          placeholder="Search by name" 
+          ariaLabel="Filter Name" /></th>
+        <th><p-columnFilter 
+          type="text"
+          field="category" 
+          placeholder="Search by Category" 
+          ariaLabel="Filter Category" /></th>
+        <th><p-columnFilter 
+          type="text"
+          field="quantity" 
+          placeholder="Search by quantity" 
+          ariaLabel="Filter quantity" /></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.quantity }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text" />
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text" />
+    </ng-template>
+  </p-table>
+</div>
