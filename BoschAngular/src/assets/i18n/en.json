@@ -554,7 +554,7 @@
         "viewUOM": "View UOM"
     },
     "bom": {
-        "title": "Float Report",
+        "title": "Shelf Life Report",
         "addButton": "Add",
         "importButton": "Import",
         "exportButton": "Export",

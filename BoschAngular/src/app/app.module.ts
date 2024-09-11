@@ -18,7 +18,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
-
+import { ShelfLifeReportComponent } from './shelf-life-report/shelf-life-report.component';
+import { provideRouter } from '@angular/router';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
   return() => configService.loadConfig();
 }
@@ -30,12 +32,14 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    FloatReportComponent
+    FloatReportComponent,
+    ShelfLifeReportComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
