@@ -9,8 +9,12 @@ import { MegaMenuItem } from 'primeng/api';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'BoschAngular';
+  title = 'Shelf Life Dashboard';
   items: MegaMenuItem[] | undefined;
+  languages : any[]=[{id:1, language:'English'},
+    {id:2, language:'German'}
+  ]
+  selectedLanguage : any;// = 'English';
   constructor(private router: Router, private translate: TranslateService) {
     const selectedLanguage = localStorage.getItem('selectedLanguage');
 
@@ -24,7 +28,7 @@ export class AppComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    
+    this.selectedLanguage = this.languages[0];
   }
 
   useLanguage(language: string): void {
@@ -34,5 +38,14 @@ export class AppComponent implements OnInit {
 
   redirectToComponent(){
     this.router.navigate(['']);
+  }
+
+  toggle(eve: any) {
+    // if (eve.target.checked == true) {
+    if (eve.value.language == 'German') {
+      this.useLanguage('de');
+    } else {
+      this.useLanguage('en');
+    }
   }
 }

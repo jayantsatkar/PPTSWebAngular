@@ -203,10 +203,17 @@
           </clipPath>
         </defs>
       </svg> -->
-      <h1>Welcome to Reports </h1>
+      <h1>{{'shelf.title' | translate}} </h1>
 
     </div>
-    <!-- <div class="divider" role="separator" aria-label="Divider"></div> -->
+    <div class="card flex justify-content-right">
+      <p-dropdown 
+          [options]="languages" 
+          [(ngModel)]="selectedLanguage" 
+          optionLabel="language"
+          placeholder="Select Language"
+          (onChange)="toggle($event)" />
+  </div>    <!-- <div class="divider" role="separator" aria-label="Divider"></div> -->
     <!-- <div class="right-side">
       <div class="pill-group">
         @for (item of [

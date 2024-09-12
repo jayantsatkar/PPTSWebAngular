@@ -2,7 +2,7 @@
     <div class="row" style="background-color:#edf0f0;">
 
         <div class="favorites-block" style="height: auto;">
-            <h2 style="margin-left: 6px;">{{ 'bom.title' | translate}}
+            <h2 style="margin-left: 6px;">{{ 'shelf.reportName' | translate}}
 
             </h2>
 
@@ -18,7 +18,7 @@
           [filter]="true"
           filterBy="partNumber" 
           [showClear]="true"
-          placeholder="Select Part"
+          [placeholder]="'shelf.placeholder' | translate"
           (onChange)="onChange($event)" />
   </div>
   <br>
@@ -26,7 +26,7 @@
     <p-table [columns]="cols" [value]="partCount" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header" let-columns>
             <tr>
-              <th>Date</th>
+              <th>{{'shelf.date' | translate}}</th>
                 <th *ngFor="let col of columns">
                     {{ col.header }}
                 </th>
@@ -34,7 +34,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
-              <td>Count</td>
+              <td>{{'shelf.count' | translate }}</td>
                 <td *ngFor="let col of columns">
                     {{ rowData[col.field] }}
                 </td>
@@ -46,8 +46,8 @@
 <table border="1" cellspacing="0" cellpadding="5">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Box Numbers</th>
+      <th>{{'shelf.date' | translate}}</th>
+      <th>{{'shelf.boxNumber' | translate}}</th>
     </tr>
   </thead>
   <tbody>

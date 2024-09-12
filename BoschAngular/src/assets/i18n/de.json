@@ -1,0 +1,10 @@
+{
+    "shelf": {
+        "title": "Willkommen bei Reports",
+        "reportName": "Bericht zur Haltbarkeit",
+        "date":"Datum",
+        "count":"Zählen",
+        "boxNumber":"Chiffre",
+        "placeholder":"Teilenummer auswählen"
+    }
+}

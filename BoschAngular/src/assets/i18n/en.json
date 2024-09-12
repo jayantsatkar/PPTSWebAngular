@@ -1,7 +1,11 @@
 {
-    "demo": {
-        "title": "Translation demo",
-        "text": "This is a simple demonstration app for translation"
+    "shelf": {
+        "title": "Welcome to Reports",
+        "reportName": "Shelf Life Report",
+        "date":"Date",
+        "count":"Count",
+        "boxNumber":"Box Number",
+        "placeholder": "Select Part"
     },
     "viewUsers": {
         "userName": " User Name",
