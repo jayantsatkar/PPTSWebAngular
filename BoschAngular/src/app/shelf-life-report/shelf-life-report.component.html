@@ -21,95 +21,43 @@
           placeholder="Select Part"
           (onChange)="onChange($event)" />
   </div>
-  
-
-    <!-- <p-dropdown [options]="parts" [(ngModel)]="selectedPart" optionLabel="name" [filter]="true" filterBy="partNumber"
-        [showClear]="true" placeholder="Select Part">
-        <ng-template pTemplate="selectedItem" let-selectedOption>
-            <div class="flex align-items-center gap-2">
-               
-                <div>{{ selectedOption.partNumber }}</div>
-            </div>
-        </ng-template>
-        <ng-template let-part pTemplate="item">
-            <div class="flex align-items-center gap-2">
-               
-                <div>{{ part.partNumber }}</div>
-            </div>
-        </ng-template>
-    </p-dropdown> -->
-
-    <!-- <div class="row" style="background-color: #e0e3e4;border: 0px;">
-      <div class="col-12 " style="overflow-x:hidden;  overflow-y: auto;">
-        <p-table #dt1 [value]="boms" [paginator]="true" [scrollable]="true" [paginator]="true" [first]="first" [rows]="rows"
-          [totalRecords]="totalRecords" [lazy]="true" (onPage)="onPageChange($event)"
-          [globalFilterFields]="['PartNo','ProductRevision','Factory','Description']" scrollHeight="450px"
-          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50,100]"
-          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-          styleClass="p-datatable-customers p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
-          <ng-template pTemplate="caption">
-            <div
-              class=" justify-content-between align-items-center no-gutters p-d-flex d-flex flex-row-reverse bd-highlight">
-              <div>
-                <span class="p-input-icon-left p-ml-auto">
-                  <i class="pi pi-search"></i>
-                  <input style="margin-right: 5px;" pInputText type="text" [(ngModel)]="searchKey"
-                    (input)="searchTable($event)" placeholder="Search keyword" />
-                  <div pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)">
-                  </div>
-                </span>
-              </div>
-              <div class="p-mb-3 p-flex-wrap">
-                <div class="p-mr-2 entry-display-box"> Show <p-dropdown appendTo="body" [options]="rowsPerPageOptions" [(ngModel)]="rows"
-                    (onChange)="onRowsChange($event)" [ngModelOptions]="{standalone: true}"
-                    [style]="{'width': '80px'}"></p-dropdown>
-                  entries</div>
-                <div>
-                  <ng-content select="[pTableHeader]"></ng-content>
-                </div>
-              </div>
-    
-            </div>
-    
-          </ng-template>
-          <ng-template pTemplate="header" style="background-color: aqua;">
+  <br>
+  <div class="card">
+    <p-table [columns]="cols" [value]="partCount" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header" let-columns>
             <tr>
-    
-              <th>{{ 'bom.id' | translate}}</th>
-              <th matTooltip="{{ 'bom.partNumber' | translate}}"><p-columnFilter ngDefaultControl [showMenu]="false"
-                  [(ngModel)]="csPartNumber" (input)="onPartNumberChange($event)"
-                  placeholder="{{ 'bom.partNumber' | translate}}" type="text" field="PartNo"></p-columnFilter></th>
-              <th matTooltip="{{ 'bom.productRevision' | translate}}"><p-columnFilter matchMode="contains" ngDefaultControl
-                  [(ngModel)]="csRevision" (input)="onRevisionChange($event)" [showMenu]="false"
-                  placeholder="{{ 'bom.productRevision' | translate}}" type="text" field="ProductRevision"></p-columnFilter>
-              </th>
-              <th matTooltip="{{ 'bom.factory' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
-                  [(ngModel)]="csFactory" (input)="onFactoryChange($event)" placeholder="{{ 'bom.factory' | translate}}"
-                  type="text" field="Factory"></p-columnFilter></th> 
-              <th matTooltip="{{ 'bom.description' | translate}}"><p-columnFilter matchMode="contains" [showMenu]="false" ngDefaultControl
-                  [(ngModel)]="csDescription" (input)="onDescriptionChange($event)"
-                  placeholder="{{ 'bom.description' | translate}}" type="text" field="Description"></p-columnFilter>
-              </th>
-              <th>{{ 'bom.actions' | translate}}</th>
+              <th>Date</th>
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
             </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-bom let-i="rowIndex">
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
-              <td>{{bom.SeqNumber}}</td>
-              <td>{{bom.PartNo}}</td>
-              <td>{{bom.ProductRevision}}</td>
-              <td>{{bom.Factory}}</td>
-              <td>{{bom.Description}}</td>
-              <td>
-                <a class="button"
-                  (click)="viewBomDetails(bom.BomId , bom.PartNo , bom.ProductRevision , bom.Description , bom.Factory , bom.OrganizationId)"
-                  ngbTooltip="View BOM Details">View</a>
-                <i aria-hidden="true" routerLinkActive="activebutton"></i>
-              </td>
+              <td>Count</td>
+                <td *ngFor="let col of columns">
+                    {{ rowData[col.field] }}
+                </td>
             </tr>
-          </ng-template>
-        </p-table>
-      </div>
-    </div>
-    -->
+        </ng-template>
+    </p-table>
+</div>
+<br>
+<table border="1" cellspacing="0" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Box Numbers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dateKey of dateKeys">
+      <td>{{ dateKey }}</td>
+      <td>{{ getCommaSeparatedDataForDate(dateKey) }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Powered by Magnetivity -->
+
 </body>
