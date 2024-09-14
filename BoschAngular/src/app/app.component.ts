@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
     {id:2, language:'German'}
   ]
   selectedLanguage : any;// = 'English';
+  clockIntervalId: any;
+  currentTime: string = '';
   constructor(private router: Router, private translate: TranslateService) {
     const selectedLanguage = localStorage.getItem('selectedLanguage');
 
@@ -29,6 +31,18 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.selectedLanguage = this.languages[0];
+    this.updateTime();
+
+    // Update the time every second
+    this.clockIntervalId = setInterval(() => {
+      this.updateTime();
+    }, 1000);
+  }
+
+  
+  updateTime(): void {
+    const now = new Date();
+    this.currentTime = now.toLocaleTimeString();
   }
 
   useLanguage(language: string): void {

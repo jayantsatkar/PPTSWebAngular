@@ -41,19 +41,18 @@ export class ShelfLifeReportComponent implements OnInit {
   partNumbers: any[] =[];
 
   selectedPart: any | undefined;
-
-  //products!: Product[];
-
+  refreshDataIntervalId: any;
   cols!: Column[];
+  
   dateKeys : any;
   constructor(private authService: AuthService, private configService: ConfigService, private toastr: toastrMsgService) {
-
   }
   ngOnInit() {
     this.getPartNumbers();
-
+    this.refreshDataIntervalId = setInterval(() => {
+      this.onChange(null);
+    }, 60000);
   }
-
 
   getPartNumbers() {
     this.authService.getData(Global["allPartUrl"]).subscribe({
@@ -66,8 +65,8 @@ export class ShelfLifeReportComponent implements OnInit {
         this.toastr.showErrorMsg('An error has occurred while processing this request. Please contact your administrator.<br>' + error.error.Message);
       };
   }
-
   onChange(event: any) {
+    //console.log('Called interval');
     let part = {
       partNumber: this.selectedPart?.partNumber
     }
