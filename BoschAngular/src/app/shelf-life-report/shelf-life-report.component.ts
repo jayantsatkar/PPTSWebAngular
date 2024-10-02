@@ -38,20 +38,22 @@ interface Product {
 export class ShelfLifeReportComponent implements OnInit {
   parts!: Part[];
   partCount: any[] = [];
-  partNumbers: any[] =[];
-
+  partNumbers: any[] = [];
+  totalCount: any;
   selectedPart: any | undefined;
   refreshDataIntervalId: any;
   cols!: Column[];
-  
-  dateKeys : any;
+  refreshTime: number = 0;
+  dateKeys: any;
   constructor(private authService: AuthService, private configService: ConfigService, private toastr: toastrMsgService) {
+    this.refreshTime = this.configService.getConfig().refreshTime * 1000;
   }
   ngOnInit() {
+
     this.getPartNumbers();
     this.refreshDataIntervalId = setInterval(() => {
       this.onChange(null);
-    }, 60000);
+    }, this.refreshTime);
   }
 
   getPartNumbers() {
@@ -66,32 +68,51 @@ export class ShelfLifeReportComponent implements OnInit {
       };
   }
   onChange(event: any) {
-    //console.log('Called interval');
+
     let part = {
       partNumber: this.selectedPart?.partNumber
     }
     if (this.selectedPart != null) {
       this.authService.postData(Global["shelfReportUrl"], part).subscribe({
         next: (res: any) => {
-          this.partCount = JSON.parse(res).Table;
-          this.partNumbers = JSON.parse(res).Table1;
 
-          console.log('this.partCount', this.partCount);
-          console.log('this.partNumbers', this.partNumbers);
+          const jsonObject = JSON.parse(res);
 
-          this.cols = [];
-          this.dateKeys =[];
-          this.dateKeys = Object.keys(this.partCount?.[0]);
-          let keys = Object.keys(this.partCount?.[0]);
-          for (let i = 0; i < keys.length; i++) {
-            let object = {
-              field: keys[i],
-              header: keys[i]
+          let tableCount = Object.keys(jsonObject).length;
+
+          console.log('Table Count=', tableCount);
+          if (tableCount == 3) {
+            this.partCount = JSON.parse(res).Table;
+            this.partNumbers = JSON.parse(res).Table1;
+            this.totalCount = JSON.parse(res).Table2[0].CNT;//JSON.parse(res).Table2;
+
+            console.log('this.partCount', this.partCount);
+            console.log('this.partNumbers', this.partNumbers);
+
+            this.cols = [];
+            this.dateKeys = [];
+            this.dateKeys = Object.keys(this.partCount?.[0]);
+            let keys = Object.keys(this.partCount?.[0]);
+            for (let i = 0; i < keys.length; i++) {
+              let object = {
+                field: keys[i],
+                header: keys[i]
+              }
+              this.cols.push(object)
             }
-            this.cols.push(object)
+            console.log(keys);
+            console.log(this.cols);
           }
-          console.log(keys);
-          console.log(this.cols);
+          else {
+            this.partCount.splice(0, this.partCount.length);
+
+            this.partNumbers.splice(0, this.partNumbers.length);
+            this.cols = [];
+            //  this.partNumbers = []
+            this.totalCount = 0;
+            this.dateKeys = [];
+            this.toastr.showWarningMsg("No data found for this part");
+          }
 
         }
       }),
@@ -102,9 +123,12 @@ export class ShelfLifeReportComponent implements OnInit {
   }
 
   getCommaSeparatedDataForDate(dateKey: string): string {
-    return this.partNumbers
-      .map(entry => entry[dateKey])
-      .filter(value => value !== null && value !== undefined)
-      .join(", ");
+    if (dateKey.length > 0) {
+      return this.partNumbers
+        .map(entry => entry[dateKey])
+        .filter(value => value !== null && value !== undefined)
+        .join(", ");
+    }
+    return "";
   }
 }

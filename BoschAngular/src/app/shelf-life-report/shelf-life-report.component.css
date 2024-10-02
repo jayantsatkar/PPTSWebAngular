@@ -1,0 +1,14 @@
+/* Apply background color for even rows */
+.p-table tbody tr:nth-child(even) {
+    background-color: #c16767 !important; /* Light grey */
+  }
+  
+  /* Apply background color for odd rows */
+  .p-table tbody tr:nth-child(odd) {
+    background-color: #000000 !important; /* White */
+  }
+  .part-description {
+    margin-left: 10px; /* Adds space between dropdown and span */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333; /* Change color to suit your design */
+}

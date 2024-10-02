@@ -5,7 +5,9 @@
         "date":"Date",
         "count":"Count",
         "boxNumber":"Box Number",
-        "placeholder": "Select Part"
+        "placeholder": "Select Part",
+        "magna":"Powered by Magnetivity Solutions",
+        "totalCount":"Total Count"
     },
     "viewUsers": {
         "userName": " User Name",

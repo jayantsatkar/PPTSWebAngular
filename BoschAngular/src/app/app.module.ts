@@ -21,6 +21,10 @@ import { FormsModule } from '@angular/forms';
 import { ShelfLifeReportComponent } from './shelf-life-report/shelf-life-report.component';
 import { provideRouter } from '@angular/router';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+//import { Component } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { RippleModule } from 'primeng/ripple';
 export function initialiseApp(configService: ConfigService):()=> Promise<void>{
   return() => configService.loadConfig();
 }
@@ -53,9 +57,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     DropdownModule,
     ButtonModule,
     IconFieldModule,
-    InputIconModule
+    InputIconModule,
+    ToastModule,
+    RippleModule
   ],
-  providers: [
+  providers: [MessageService,
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},
     { provide :LocationStrategy, useClass: HashLocationStrategy},
     {

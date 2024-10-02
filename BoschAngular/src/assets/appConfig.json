@@ -1,4 +1,5 @@
 {
     "commonUrl": "http://localhost:5062/",
-    "devUrl": "http://Dev"
+    "devUrl": "http://Dev",
+    "refreshTime":"30"
 }

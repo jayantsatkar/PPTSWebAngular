@@ -5,6 +5,8 @@
         "date":"Datum",
         "count":"Zählen",
         "boxNumber":"Chiffre",
-        "placeholder":"Teilenummer auswählen"
+        "placeholder":"Teilenummer auswählen",
+        "magna":"Powered by Magnetivity Solutions",
+        "totalCount":"Total Count"
     }
 }
