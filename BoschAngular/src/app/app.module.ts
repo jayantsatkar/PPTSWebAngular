@@ -45,6 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastModule,
+    RippleModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -58,8 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonModule,
     IconFieldModule,
     InputIconModule,
-    ToastModule,
-    RippleModule
+    
   ],
   providers: [MessageService,
     {provide : HTTP_INTERCEPTORS , useClass : AuthInterceptor, multi : true},

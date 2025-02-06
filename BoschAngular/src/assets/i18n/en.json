@@ -7,7 +7,8 @@
         "boxNumber":"Box Number",
         "placeholder": "Select Part",
         "magna":"Powered by Magnetivity Solutions",
-        "totalCount":"Total Count"
+        "totalCount":"Total Count",
+        "partDescription":"Part Description"
     },
     "viewUsers": {
         "userName": " User Name",

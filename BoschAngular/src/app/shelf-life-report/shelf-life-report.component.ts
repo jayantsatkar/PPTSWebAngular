@@ -4,6 +4,7 @@ import { ConfigService } from '../Services/config.service';
 import { Global } from '../Services/global';
 import { toastrMsgService } from '../Services/toaster-msg.service';
 import { Part } from '../model/part';
+import { MessageService } from 'primeng/api';
 
 // interface Part {
 //   id: number;
@@ -45,7 +46,7 @@ export class ShelfLifeReportComponent implements OnInit {
   cols!: Column[];
   refreshTime: number = 0;
   dateKeys: any;
-  constructor(private authService: AuthService, private configService: ConfigService, private toastr: toastrMsgService) {
+  constructor(private authService: AuthService, private configService: ConfigService, private toastr: toastrMsgService, private messageService: MessageService) {
     this.refreshTime = this.configService.getConfig().refreshTime * 1000;
   }
   ngOnInit() {
@@ -112,6 +113,7 @@ export class ShelfLifeReportComponent implements OnInit {
             this.totalCount = 0;
             this.dateKeys = [];
             this.toastr.showWarningMsg("No data found for this part");
+           // this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
           }
 
         }
