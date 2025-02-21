@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./drowdown.component.scss'],
 })
 export class DrowdownComponent implements OnInit {
-  @Input() options: { key: string; value: string }[];
+  @Input() options!: { key: string; value: string }[];
   @Output() optionSelected = new EventEmitter<string>();
 
   constructor() {}

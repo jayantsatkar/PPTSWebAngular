@@ -32,6 +32,7 @@ import { HomeComponent } from './home/home.component';
 import { FailedComponent } from './failed/failed.component';
 import { SlideMenuBackDirective } from './shared/directives/slide-menu-back.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+
 export function initialiseApp(configService: ConfigService): () => Promise<void> {
   return () => configService.loadConfig();
 }
@@ -135,7 +136,27 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
       useFactory: initialiseApp,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
+    },
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory
+    },
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService
   ],
   bootstrap: [AppComponent]
 })

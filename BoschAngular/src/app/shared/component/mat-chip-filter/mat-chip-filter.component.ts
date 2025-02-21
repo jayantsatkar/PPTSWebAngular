@@ -15,7 +15,10 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { map, Observable, startWith, Subject, takeUntil } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { FormDataApiService } from '../../services/form-data-api.service';
-import { FormDataModel } from 'src/app/modules/model/form-data.model';
+//import { FormDataModel } from 'src/app/modules/model/form-data.model';
+
+import {FormDataModel } from '../../../modules/model/form-data.model';
+
 import { MatChipFilterService } from '../../services/mat-chip-filter.service';
 import {
   MAP_CONFIG_ONCHIP_EVENT,
@@ -36,7 +39,7 @@ export class MatChipFilterComponent implements OnInit, OnDestroy {
   plantID: any;
   allCrumbs: Level[] = [];
   crumbCtrl = new FormControl('');
-  filteredCrumbs: Observable<Level[]>;
+  filteredCrumbs!: Observable<Level[]>;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   plantIdEdenkoben: any = appConfig.plantIdEdenkoben.toString();
   crumbs: Level[] = [
@@ -64,7 +67,7 @@ export class MatChipFilterComponent implements OnInit, OnDestroy {
     ],
   } as FormDataModel;
 
-  @Input() componetFrom: string;
+  @Input() componetFrom: string ='';
   @ViewChild('crumbInput') crumbInput!: ElementRef<HTMLInputElement>;
   @Output() chipSelectionEventChange = new EventEmitter<FormDataModel>();
   @Output() chipRemoveEventChange = new EventEmitter<FormDataModel>();

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FormDataModel } from 'src/app/modules/model/form-data.model';
+// import { FormDataModel } from 'src/app/modules/model/form-data.model';
+import { FormDataModel } from '../../modules/model/form-data.model'
+
 import { ConfigService } from './config.service';
 import { Observable, of } from 'rxjs';
 import {
@@ -24,7 +26,7 @@ import { UtilService } from './util.service';
   providedIn: 'root',
 })
 export class FormDataApiService {
-  private _currentSelectedChipTarget: string;
+  private _currentSelectedChipTarget!: string;
   constructor(
     private configService: ConfigService,
     private utilService: UtilService

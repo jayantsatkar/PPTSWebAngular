@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private jsonService: JsonService,
     private configService: ConfigService,
   ) {
+    console.log("hello");
     //this.heirarchyNodeService.getHierarchyNode();
     
   }

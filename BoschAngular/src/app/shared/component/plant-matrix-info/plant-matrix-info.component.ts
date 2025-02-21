@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatrixModel } from 'src/app/modules/model/matrix.model';
+//import { MatrixModel } from 'src/app/modules/model/matrix.model';
+
+import {MatrixModel} from '../../../modules/model/matrix.model'
 
 @Component({
   selector: 'plant-matrix-info',
@@ -7,8 +9,8 @@ import { MatrixModel } from 'src/app/modules/model/matrix.model';
   styleUrls: ['./plant-matrix-info.component.scss'],
 })
 export class PlantMatrixInfoComponent implements OnInit {
-  @Input() matrixData: MatrixModel;
-  @Input() buttonLabel: string;
+  @Input() matrixData!: MatrixModel;
+  @Input() buttonLabel!: string;
   @Output() onMatrixButtonClick = new EventEmitter<MatrixModel>();
   constructor() {}
 

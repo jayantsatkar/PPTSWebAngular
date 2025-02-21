@@ -21,8 +21,8 @@ import { PlantService } from '../../services/plant.service';
   styleUrls: ['./plant-level-filter.component.scss'],
 })
 export class PlantLevelFilterComponent implements OnInit, OnDestroy {
-  @Input() childContent: TemplateRef<HTMLElement> | undefined;
-  @Input() additionalContent: TemplateRef<HTMLElement>| undefined;
+  @Input() childContent!: TemplateRef<HTMLElement> ;
+  @Input() additionalContent!: TemplateRef<HTMLElement>;
   @Input() isDateRangeFilterRequired: boolean =false;
   @Input() componetFrom: string ='';
   @Input() maxDate: Date | null = null;

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatrixValue } from 'src/app/modules/model/matrix.model';
+//import { MatrixValue } from 'src/app/modules/model/matrix.model';
+
+import {MatrixValue} from '../../../modules/model/matrix.model'
 
 @Component({
   selector: 'plant-matrix-value',
