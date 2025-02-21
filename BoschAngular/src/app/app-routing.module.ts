@@ -1,29 +1,92 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FloatReportComponent } from './Reports/float-report/float-report.component';
-import { ShelfLifeReportComponent } from './shelf-life-report/shelf-life-report.component';
+// import { AuthGuard } from './shared/guards/auth.guard';
+import { MsalGuard } from '@azure/msal-angular';
+import { BrowserUtils } from '@azure/msal-browser';
 import { HomeComponent } from './home/home.component';
 import { FailedComponent } from './failed/failed.component';
-import { BrowserUtils } from '@azure/msal-browser';
+import { AppConfigGuard } from './shared/guards/AppConfigGuard';
+import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginComponent } from './modules/user/login/login.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login-failed', component: FailedComponent },
-  { path: '', redirectTo: 'user/login', pathMatch: 'prefix', },
-  { path: '', loadChildren: () => import('./modules/layout/layout.module').then((m) => m.LayoutModule), },
-  { path: 'user', loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule), },
-  { path: 'login', component: LoginComponent },
-  { path: 'report', component: FloatReportComponent },
+// const routes: Routes = [
+//   {
+//     path: '',
+//     redirectTo: 'user/login',
+//     pathMatch: 'prefix',
+//   },
+//   {
+//     path: '',
+//     loadChildren: () =>
+//       import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+//     canActivate: [AuthGuard],
+//   },
+//   {
+//     path: 'user',
+//     loadChildren: () =>
+//       import('./modules/user/user.module').then((m) => m.UserModule),
+//   },
+// ];
 
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent,
+    //  canActivate: [AppConfigGuard],
+  },
+  {
+    path: 'login-failed',
+    component: FailedComponent,
+    //  canActivate: [AppConfigGuard],
+  },
+  {
+    path: '',
+    redirectTo: 'user/login',
+    pathMatch: 'prefix',
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+    // canActivate: [AuthGuard],
+    // canActivate: [MsalGuard],
+  },
+
+  // AppConfigGuard?{
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./modules/layout/layout.module').then((m) => m.LayoutModule)     ,
+  //   canActivate: [AuthGuard],
+  // }: {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./modules/layout/layout.module').then((m) => m.LayoutModule) ,
+  //   canActivate:[MsalGuard]   
+  // },
+
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  }
 ];
 
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes, { useHash: true })],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule {}
 @NgModule({
+  // imports: [RouterModule.forRoot(routes, { useHash: true })],
   imports: [RouterModule.forRoot(routes, {
     useHash: true,
     // Don't perform initial navigation in iframes or popups
     initialNavigation: !BrowserUtils.isInIframe() && !BrowserUtils.isInPopup() ? 'enabledNonBlocking' : 'disabled' // Set to enabledBlocking to use Angular Universal
   })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

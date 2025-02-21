@@ -13,7 +13,7 @@ import { DialogModule } from 'primeng/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { AllChartsComponent } from './component/all-charts/all-charts.component';
+// import { AllChartsComponent } from './component/all-charts/all-charts.component';
 import { LoaderComponent } from './loader/loader.component';
 import { NodataFoundComponent } from './component/nodata-found/nodata-found.component';
 import { OutSideClickDirective } from './directives/out-side-click.directive';
@@ -53,7 +53,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SidebarComponent,
     ImageDialogComponent,
     BreadcrumbComponent,
-    AllChartsComponent,
+    // AllChartsComponent,
     LoaderComponent,
     NodataFoundComponent,
     OutSideClickDirective,
@@ -99,7 +99,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DrowdownComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    AllChartsComponent,
+   // AllChartsComponent,
     LoaderComponent,
     NodataFoundComponent,
     OutSideClickDirective,

@@ -2,12 +2,13 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from "@angular/core";
 import { catchError, Observable, throwError } from "rxjs";
 import { toastrMsgService } from "./toaster-msg.service";
-import { AuthService } from "./auth.service";
+//import { AuthService } from "./auth.service";
+import {ConfigService} from '../shared/services/config.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
     constructor( private toasterMsgService : toastrMsgService,
-      private authService : AuthService
+      private authService : ConfigService
         
     ){}
     intercept(request: HttpRequest<unknown>, 

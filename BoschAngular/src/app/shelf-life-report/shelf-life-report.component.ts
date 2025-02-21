@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
-import { ConfigService } from '../Services/config.service';
+
+// import { ConfigService } from '../Services/config.service';
+
+import { ConfigService } from '../shared/services/config.service'
+import { JsonService } from '../shared/services/json.service'
+
 import { Global } from '../Services/global';
 import { toastrMsgService } from '../Services/toaster-msg.service';
 import { Part } from '../model/part';
@@ -46,8 +50,10 @@ export class ShelfLifeReportComponent implements OnInit {
   cols!: Column[];
   refreshTime: number = 0;
   dateKeys: any;
-  constructor(private authService: AuthService, private configService: ConfigService, private toastr: toastrMsgService, private messageService: MessageService) {
-    this.refreshTime = this.configService.getConfig().refreshTime * 1000;
+  constructor(private configService: ConfigService, private toastr: toastrMsgService, private messageService: MessageService,
+    private jsonService: JsonService
+  ) {
+    this.refreshTime = this.jsonService.getConfig().refreshTime * 1000;
   }
   ngOnInit() {
 
@@ -58,7 +64,7 @@ export class ShelfLifeReportComponent implements OnInit {
   }
 
   getPartNumbers() {
-    this.authService.getData(Global["allPartUrl"]).subscribe({
+    this.configService.getRequest(Global["allPartUrl"]).subscribe({
       next: (res: any) => {
         this.parts = JSON.parse(res);
         // console.log(this.parts);
@@ -74,7 +80,7 @@ export class ShelfLifeReportComponent implements OnInit {
       partNumber: this.selectedPart?.partNumber
     }
     if (this.selectedPart != null) {
-      this.authService.postData(Global["shelfReportUrl"], part).subscribe({
+      this.configService.postRequest(Global["shelfReportUrl"], part).subscribe({
         next: (res: any) => {
 
           const jsonObject = JSON.parse(res);
@@ -113,7 +119,7 @@ export class ShelfLifeReportComponent implements OnInit {
             this.totalCount = 0;
             this.dateKeys = [];
             this.toastr.showWarningMsg("No data found for this part");
-           // this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+            // this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
           }
 
         }

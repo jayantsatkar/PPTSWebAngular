@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { FloatReportComponent } from './Reports/float-report/float-report.component';
-import { ConfigService } from './Services/config.service';
+//import { ConfigService } from './Services/config.service';
+//import {ConfigService} from './shared/services/config.service'
+import {JsonService} from './shared/services/json.service'
+
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -33,7 +36,7 @@ import { FailedComponent } from './failed/failed.component';
 import { SlideMenuBackDirective } from './shared/directives/slide-menu-back.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 
-export function initialiseApp(configService: ConfigService): () => Promise<void> {
+export function initialiseApp(configService: JsonService): () => Promise<void> {
   return () => configService.loadConfig();
 }
 
@@ -134,7 +137,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     {
       provide: APP_INITIALIZER,
       useFactory: initialiseApp,
-      deps: [ConfigService],
+      deps: [JsonService],
       multi: true
     },
     {

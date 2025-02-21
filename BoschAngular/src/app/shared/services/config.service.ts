@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Global } from './global';
 import { JsonService } from './json.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
-  //private baseUrl = Global.URL;
-  constructor(private http: HttpClient, private jsonService : JsonService) {}
+  // private baseUrl = Global.URL;
+  constructor(private http: HttpClient, private jsonService : JsonService, private router: Router) {}
 
   // HTTP POST REQUEST
   postRequest(url: string, body: any) {
@@ -41,4 +41,9 @@ export class ConfigService {
       responseType: 'blob'
     });
   }
+
+  logOut() {
+    sessionStorage.removeItem("token");
+    this.router.navigate(["/user/login"]);
+}
 }
