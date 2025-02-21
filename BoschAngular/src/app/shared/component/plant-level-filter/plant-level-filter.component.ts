@@ -7,8 +7,9 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { FormDataModel } from 'src/app/modules/model/form-data.model';
-import { PlantFiltersQuery } from 'src/app/modules/model/plant-filters-query.model';
+//import { FormDataModel } from 'src/app/modules/model/form-data.model';
+import {FormDataModel} from '../../../modules/model/form-data.model'
+import { PlantFiltersQuery } from '../../../modules/model/plant-filters-query.model';
 import { DataShareService } from '../../services/data.share.service';
 import { JsonService } from '../../services/json.service';
 import { Subscription } from 'rxjs';
@@ -20,10 +21,10 @@ import { PlantService } from '../../services/plant.service';
   styleUrls: ['./plant-level-filter.component.scss'],
 })
 export class PlantLevelFilterComponent implements OnInit, OnDestroy {
-  @Input() childContent: TemplateRef<HTMLElement>;
-  @Input() additionalContent: TemplateRef<HTMLElement>;
-  @Input() isDateRangeFilterRequired: boolean;
-  @Input() componetFrom: string;
+  @Input() childContent: TemplateRef<HTMLElement> | undefined;
+  @Input() additionalContent: TemplateRef<HTMLElement>| undefined;
+  @Input() isDateRangeFilterRequired: boolean =false;
+  @Input() componetFrom: string ='';
   @Input() maxDate: Date | null = null;
   @Input() isPlantHierarchyRequired: boolean = true;
   
@@ -36,21 +37,11 @@ export class PlantLevelFilterComponent implements OnInit, OnDestroy {
   } as PlantFiltersQuery;
 
   @Output() searchSparePartConsumption = new EventEmitter<PlantFiltersQuery>();
-  private plantSubscription: Subscription;
   constructor(private sharedService: DataShareService, private plantService: PlantService,
     private jsonService: JsonService,
   ) {}
 
   ngOnInit(): void {
-    this.plantSubscription = this.plantService.getPlantDetailsSubject().subscribe((plants) => {
-      if (plants.length > 0) {
-        this.plantID = plants[0].id.toString();
-        this.filtersQuery.plant = this.plantID; 
-        this.filtersQuery.pageNo = '1';
-        this.filtersQuery.pageSize = '10';
-        console.log(this.filtersQuery, "filter query from plant filter component");
-      }
-    });
   }
 
   private _payLoad(formDataModel?: FormDataModel): PlantFiltersQuery {

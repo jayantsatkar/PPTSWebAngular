@@ -11,8 +11,9 @@ import { TableModule } from 'primeng/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { TagModule } from 'primeng/tag';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { ChartModule } from 'src/app/shared/chart/chart.module';
+// import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module'
+// import { ChartModule } from 'src/app/shared/chart/chart.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CardModule } from 'primeng/card';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
@@ -46,7 +47,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PartConfigurationComponent
   ],
   imports: [
-    
     MasterDetailsRoutingModule,
     CommonModule,
     BreadcrumbModule,
@@ -59,7 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatChipsModule,
     TagModule,
     SharedModule,
-    ChartModule,
+    //ChartModule,
     CheckboxModule,
     CardModule,
     OverlayPanelModule,

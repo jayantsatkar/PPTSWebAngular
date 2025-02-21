@@ -13,9 +13,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent implements OnInit {
-  breadcrumbItems: MenuItem[];
+  breadcrumbItems!: MenuItem[];
   languageSubscription: Subscription = new Subscription();
-  home: MenuItem;
+  home!: MenuItem;
   constructor(
     private breadcrumbService: BreadcrumbService,
     private modularEventService: ModularEventService,

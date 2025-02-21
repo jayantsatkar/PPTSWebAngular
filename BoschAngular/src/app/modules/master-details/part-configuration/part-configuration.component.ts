@@ -1,4 +1,4 @@
-import { string } from '@amcharts/amcharts4/core';
+//import { string } from '@amcharts/amcharts4/core';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
@@ -10,8 +10,8 @@ import { MenuItem } from 'primeng/api';
 export class PartConfigurationComponent implements OnInit {
 
   // Breadcrumb Items
-  items: MenuItem[];
-  home: MenuItem;
+  items: MenuItem[] | undefined;
+  home: MenuItem | undefined;
 
   rowsPerPageOptions = [5, 10, 20];
   rows = 10;

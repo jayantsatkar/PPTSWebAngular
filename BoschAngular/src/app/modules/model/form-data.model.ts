@@ -1,4 +1,5 @@
-import { Level } from 'src/app/shared/const/level';
+//import { Level } from 'src/app/shared/const/level';
+import {Level } from '../../shared/const/level'
 
 export interface FormDataModel {
   curLevel: number;

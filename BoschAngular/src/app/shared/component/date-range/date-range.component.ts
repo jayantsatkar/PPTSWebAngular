@@ -26,7 +26,7 @@ export class DateRangeComponent implements OnInit {
   @Input() additionalButtonContent: TemplateRef<HTMLElement> | undefined;
   @Input() maxDate: Date | null = null;
 
-  rangeForm: FormGroup | undefined;
+  rangeForm: FormGroup ;
   minDate: Date;
 
   constructor(
@@ -40,11 +40,6 @@ export class DateRangeComponent implements OnInit {
     this.maxDate = new Date();
     this.minDate = new Date();
     this.minDate.setDate(1);
-  }
-
-  ngOnInit() {
-    this._onSubcription();
-    this.defaultDateInitiation();
     this.rangeForm = this.fb.group(
       {
         fromDate: [
@@ -58,6 +53,12 @@ export class DateRangeComponent implements OnInit {
       },
       { validator: this.dateRangeValidator }
     );
+  }
+
+  ngOnInit() {
+    this._onSubcription();
+    this.defaultDateInitiation();
+   
     this._onValueChanges();
   }
 
