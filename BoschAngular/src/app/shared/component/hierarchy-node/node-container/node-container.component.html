@@ -1,0 +1,7 @@
+<div id="container_recursive_item">
+  <ul class="flex-item">
+    <recursive-item *ngFor="let item of nodes" [item]="item" [expandedItem]="expandedItem" (toggle)="onToggle($event)"
+      #recursiveItemComponent>
+    </recursive-item>
+  </ul>
+</div>

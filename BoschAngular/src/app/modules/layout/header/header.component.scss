@@ -1,0 +1,159 @@
+mat-toolbar {
+  background-color: #0a1321;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-menu {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.tata-logo {
+  margin-left: 20px;
+}
+
+.tata-logo img {
+  width: 80px;
+}
+
+.toolbar-icons {
+  display: flex;
+  //align-items: center;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  i {
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
+
+// .toolbar-input {
+//   background: #fff;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   padding: 5px 10px;
+//   margin-right: 10px;
+//   color: #000;
+// }
+
+.user-section {
+  background: #0b4b83;
+  border-radius: 50px;
+  border: none;
+  font-family: aptos !important;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.user-icon {
+  margin-right: 3px;
+}
+
+.chevron-icon {
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .tata-logo img {
+    width: 60px;
+  }
+
+  // .toolbar-input {
+  //   display: none;
+  // }
+
+  .user-section {
+    padding: 0 5px;
+  }
+
+  .user-name {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .toggle-menu {
+    margin-left: 5px;
+  }
+
+  .tata-logo {
+    margin-left: 10px;
+  }
+
+  .dropdown-wrapper {
+    margin-right: 5px;
+  }
+}
+
+.dropdown-wrapper i {
+  color: white !important;
+  font-size: 22px !important;
+}
+
+.pi.pi-send {
+  cursor: pointer;
+}
+
+// Hide control on mobile (max-width: 767px)
+.hide-on-mobile-and-tablet {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+::ng-deep .mat-menu-panel{
+  min-height: 0px !important;
+}
+
+// Hide control on mobile (max-width: 767px) and tablet (max-width: 1024px)
+// .hide-on-mobile-and-tablet {
+//   @media (min-width: 768px) and (max-width: 1024px) {
+//     display: none;
+//   }
+// }

@@ -1,0 +1,907 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "ngx-toastr/toastr";
+//@import "app/modules/oee-dashboard/oee-dashboard.component.scss";
+//@import "app/shared/component/sidebar/sidebar.component.scss";
+//@import "app/shared/component/drowdown/drowdown.component.scss";
+//@import "app/modules/energy/energy-dashboard/energy-dashboard.component.scss";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.css";
+@import url("../node_modules/primeicons/primeicons.css");
+@import url("../node_modules/primeng/resources/themes/nova/theme.css");
+@import url("../node_modules/primeng/resources/primeng.min.css");
+//@import url("../src/app/modules/asset-management/hierarchy-plant-info/hierarchy-plant-info.component.scss");
+// @import "app/modules/asset-management/oaedashboard/oaedashboard.component.scss";
+@import "src/app/shared/component/date-range/date-range.component.scss";
+// @import "app/modules/meantimereport/meantimereport.component.scss";
+// @import "app/modules/upload/uploaddata/uploaddata.component.scss";
+// @import "app/modules/master-screens/master-dashboard/master-dashboard.component.scss";
+
+// //Remove Horizontal Scroll
+mat-drawer-content.mat-drawer-content {
+  overflow-x: hidden !important;
+}
+
+mat-select {
+  height: 24px !important;
+}
+
+body.dark-mode text {
+  color: white;
+}
+
+body.light-mode text {
+  color: black;
+}
+
+body.dark-mode line {
+  color: white;
+}
+
+body.light-mode line {
+  color: black;
+}
+
+body.dark-mode path {
+  color: white;
+}
+
+body.light-mode path {
+  color: black;
+}
+
+#main {
+  padding: 0.5rem 0.875rem 0px 0.875rem;
+}
+
+.green-color {
+  color: #40d510;
+}
+
+.yellow-color {
+  color: #f8d461;
+}
+
+.red-color {
+  color: #eb7487;
+}
+
+@media (max-width: 600px) {
+  .loss-chart-row {
+    padding-left: 0 !important;
+  }
+
+  .responsive-table {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}
+
+.fm-card-header-bg {
+  background: #001b5b;
+  border-radius: 4px 4px 0px 0px;
+  margin: -1px;
+  // font-family: aptos !important ;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+
+  .fm-factory-magix-title {
+    // font-family: aptos !important ;
+    font-weight: 700;
+    font-size: 20px;
+    color: #628bff;
+  }
+}
+
+*:not([class*="pi"]):not([class*="fa"]):not([class*="bi"]) {
+  font-family: "Aptos", sans-serif !important;
+}
+
+#p-datatable-wrapper {
+  border-radius: 10px !important;
+}
+
+#maitenance-activity-table {
+  .p-datatable {
+    .p-datatable-wrapper {
+      border-radius: 10px !important;
+    }
+  }
+}
+.fm-title {
+  //font-family: aptos !important ;
+  font-weight: 600;
+  font-size: 13px;
+  color: #000000;
+}
+
+.form-label {
+  //font-family: aptos !important ;
+  font-weight: 600;
+  font-size: 13px;
+  color: #000000;
+}
+
+.form-input {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+}
+
+.form-select {
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  //font-family: aptos !important ;
+  font-weight: 400;
+  font-size: 13px;
+  color: #6c6c6c;
+  height: 37px;
+}
+
+.btn-sections .fm-btn {
+  background: #001b5b;
+  border-radius: 2px;
+  //font-family: aptos !important ;
+  font-weight: 500;
+  font-size: 13px;
+  color: #ffffff;
+  width: 149px;
+  height: 34px;
+}
+
+.error-msg {
+  color: red;
+  //font-family: aptos !important ;
+  font-weight: 500;
+  font-size: 13px;
+  position: fixed;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+.main-section {
+  margin: 15px 5px 0px 5px;
+}
+
+.card.card-header {
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid #f8f8f8;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+
+  .header-title {
+    //font-family: aptos !important ;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.005em;
+    color: #13172c;
+  }
+
+  header {
+    margin-top: 3px;
+  }
+}
+
+.top-bar {
+  background: #f8f8f8;
+  border: 1px solid #eeeeee;
+  border-radius: 2px;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 1.1rem;
+
+  .label {
+    //font-family: aptos !important ;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    color: #000000;
+  }
+
+  .value {
+    //font-family: aptos !important ;
+    font-weight: 400;
+    font-size: 13px;
+    color: #333333;
+    margin-left: 10px;
+  }
+}
+
+.header-link {
+  //font-family: aptos !important ;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.005em;
+  color: rgba(39, 48, 67, 0.6);
+}
+
+.hover-css:hover {
+  color: #062294;
+  cursor: pointer;
+}
+
+.search-section {
+  background-color: #062294;
+  width: 32px;
+  height: 31px;
+  float: right;
+  position: relative;
+  bottom: 34px;
+  right: 4px;
+}
+
+.button-section {
+  display: block;
+  text-align: end;
+}
+
+.mat-paginator-outer-container {
+  padding: 0px 0px 0px 0px !important;
+}
+
+.fm-btn {
+  background: #062294;
+  border-radius: 2px;
+  padding: 10px 10px;
+  padding: 6px 24px;
+  border: none;
+  color: white;
+
+  //font-family: aptos !important ;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+// table
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}
+
+.hide-border-bottom {
+  border-bottom: none !important;
+}
+
+mat-paginator {
+  //font-family: aptos !important ;
+  font-weight: 500 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  color: #05141f !important;
+}
+p-paginator.p-element.ng-star-inserted {
+  padding: 0em !important;
+}
+.p-datatable-wrapper {
+  padding: 0px !important;
+}
+
+body.light-mode table {
+  width: 100%;
+
+  th {
+    background: #1968b3 !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+  }
+
+  td {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: black !important;
+  }
+
+  .view-details {
+    color: #062294;
+    font-weight: 400;
+    font-size: 13px;
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+}
+
+body.dark-mode table {
+  width: 100%;
+
+  th {
+    background: #001c57 !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+  }
+
+  td {
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    color: white !important;
+  }
+
+  .view-details {
+    color: #062294;
+    font-weight: 400;
+    font-size: 13px;
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+}
+
+table tr:nth-child(odd) td {
+  background-color: #0b1523;
+}
+
+table tr:nth-child(even) td {
+  background-color: #0a1321;
+}
+
+.mat-row:hover .mat-cell {
+  background: rgba(35, 104, 173, 0.1) !important;
+  transition: 0.2ms ease-in-out !important;
+}
+
+tr.mat-header-row {
+  height: 46px !important;
+}
+
+// end table
+
+// tab section
+.mat-ink-bar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.mat-tab-group .mat-tab-header {
+  border-bottom: none !important;
+}
+
+.mat-tab-label {
+  width: 130px !important;
+  height: 32px !important;
+}
+
+.mat-tab-label-active {
+  background: #6a90bf;
+  color: white !important;
+  border-radius: 50px;
+}
+
+body.dark-mode .mat-tab-label-content {
+  //font-family: aptos !important ;
+  font-weight: 600;
+  font-size: 14px;
+  color: white !important;
+}
+
+body.light-mode .mat-tab-label-content {
+  //font-family: aptos !important ;
+  font-weight: 600;
+  font-size: 14px;
+  color: black !important;
+}
+
+// Scrollable screen
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #001b5b;
+  border-radius: 30px;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  display: none;
+}
+
+.info-icon {
+  margin-right: 6px;
+  width: 18px;
+}
+
+.edit-icon {
+  margin-right: 10px;
+  width: 18px;
+}
+
+.delete-icon {
+  width: 18px;
+  margin-right: 10px;
+}
+
+.bg-gray {
+  background: #f5f5f5;
+  padding: 18px;
+
+  .work-center-section {
+    .start-btn {
+      width: 118px;
+      height: 40px;
+      background: #ffffff;
+      border: none;
+      text-align: left;
+
+      border-radius: 2px;
+      //font-family: aptos !important ;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: text;
+    }
+
+    .work-center-btn {
+      text-decoration-line: underline;
+      color: #062294;
+      cursor: pointer;
+    }
+  }
+}
+
+.clear-btn {
+  height: 37px;
+  border: none;
+  width: 42px;
+  border-radius: 4px;
+  background: #062294;
+  color: white;
+
+  i {
+    font-size: 14px;
+  }
+}
+
+.record-not-available {
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Custom styles for the paginator */
+body.light-mode .p-paginator {
+  background-color: white !important; /* Dark background color */
+  //color: #fff; /* Text color */
+  color: #001c57;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-color: #112136 !important;
+  justify-content: right !important;
+}
+
+body.dark-mode .p-paginator {
+  background-color: #0b1523 !important; /* Dark background color */
+  //color: #fff; /* Text color */
+  color: white;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-color: #112136 !important;
+  justify-content: right !important;
+}
+
+.p-paginator .p-paginator-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #182e4a;
+  border-color: #7e8a9a;
+  //color: #7e8a9a;
+  color: white;
+}
+.p-paginator-bottom.p-paginator.p-component.ng-star-inserted {
+  border-radius: 0px 0px 10px 10px !important;
+  border: 1px solid white !important;
+  color: white;
+}
+
+/* Custom styles for the breadcrumb */
+body.dark-mode .p-breadcrumb {
+  background-color: #001c57; /* Dark background color */
+  box-shadow: 0px 0px 5px #001c57;
+  color: white !important; /* Text color */
+  padding: 5px 5px 5px 10px; /* Adjust padding as needed */
+  border: 0px solid #001c57;
+}
+
+body.light-mode .p-breadcrumb {
+  background-color: #f8f8f8; /* Dark background color */
+  color: rgb(236, 232, 232); /* Text color */
+  padding: 5px 5px 5px 10px; /* Adjust padding as needed */
+  border: 0px solid #0d1d31;
+  font-size: 16px;
+}
+
+.p-breadcrumb .p-breadcrumb-list {
+  list-style: none; /* Remove default list styles */
+  margin: 0;
+  padding: 0;
+  color: rgb(8, 5, 5) !important;
+}
+
+.p-breadcrumb .p-breadcrumb-list .p-breadcrumb-item {
+  display: inline-block;
+  margin-right: 5px; /* Adjust margin between breadcrumb items */
+}
+
+.p-breadcrumb .p-breadcrumb-list .p-breadcrumb-item .p-breadcrumb-link {
+  color: #fff !important; /* Text color for breadcrumb links */
+  text-decoration: none;
+}
+
+.p-breadcrumb .p-breadcrumb-list .p-breadcrumb-item .p-breadcrumb-link:hover {
+  color: white; /* Text color on hover */
+}
+// body.dark-mode span.p-menuitem-text {
+//   color: rgb(7, 4, 4) !important;
+// }
+body.dark-mode span.p-menuitem-icon.pi.pi-home.ng-star-inserted {
+  color: rgb(7, 5, 5);
+}
+body.dark-mode li.p-breadcrumb-chevron.pi.pi-chevron-right.ng-star-inserted {
+  color: rgb(20, 14, 14);
+}
+
+// body.dark-mode span.p-menuitem-text {
+//   color: rgb(255, 255, 255) !important;
+// }
+body.dark-mode span.p-menuitem-icon.pi.pi-home.ng-star-inserted {
+  color: rgb(255, 255, 255) !important;
+}
+body.dark-mode li.p-breadcrumb-chevron.pi.pi-chevron-right.ng-star-inserted {
+  color: rgb(255, 255, 255) !important;
+}
+
+// //
+// /* Adjust padding and margin for the column headers */
+// th {
+//   //padding: 0px 8px !important;
+//   margin: 0 !important;
+// }
+
+// // /* Adjust padding and margin for the column filter elements */
+// // .p-column-filter {
+// //   margin: 0 !important;
+// // }
+
+// /* Adjust padding for the input elements inside the column filters */
+// .p-inputtext {
+//   padding: 0 !important;
+// }
+
+.p-column-filter .p-inputtext {
+  background-color: white;
+  font-size: 11px;
+  padding: 3px;
+  text-align: center;
+}
+body.dark-mode .p-sidebar {
+  background-color: #0e1e33 !important;
+}
+body.light-mode .p-sidebar {
+  background-color: #dfe6e9 !important;
+}
+
+.p-component-overlay {
+  width: calc(100% - 320px) !important;
+}
+
+body:not(.dark-mode-preloading) {
+  transition: all 0.3s linear;
+}
+
+// body.dark-mode {
+//   background-color: #001c57 !important;
+//   color: #dfe6e9;
+// }
+
+// body.light-mode {
+//   background-color: #f8f8f8 !important;
+//   color: #2d3436;
+// }
+
+body.light-mode .mat-drawer-container {
+  background-color: #f8f8f8;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body.dark-mode .mat-drawer-container {
+  background-color: #01203f;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body.dark-mode .p-breadcrumb.p-component {
+  background-color: #001c57 !important;
+}
+
+body.light-mode .p-breadcrumb.p-component {
+  background-color: #f8f8f8 !important;
+}
+
+body.light-mode span.p-menuitem-text.ng-star-inserted {
+  color: black;
+}
+
+li.p-breadcrumb-chevron.pi.pi-chevron-right.ng-star-inserted {
+  color: black;
+}
+span.p-menuitem-icon.pi.pi-home.ng-star-inserted {
+  color: black;
+}
+
+.p-slidemenu .p-menuitem-link {
+  padding: 7px 6px 4px 10px !important;
+  font-size: 14px !important;
+}
+.p-slidemenu .p-menuitem-link .p-menuitem-icon {
+  font-size: 11px !important;
+}
+.p-slidemenu .p-slidemenu-wrapper,
+.p-slidemenu .p-slidemenu-content,
+.p-slidemenu .p-slidemenu-rootlist,
+.p-slidemenu .p-menuitem-active > .p-submenu > .p-submenu-list {
+  width: 250px !important;
+}
+body.light-mode .p-breadcrumb .p-menuitem-text {
+  color: black !important;
+}
+body.dark-mode .p-breadcrumb .p-menuitem-text {
+  color: white !important;
+}
+//  Added by Vidhi For Aptos Font
+
+@font-face {
+  font-family: "Aptos";
+  src: url("assets/fonts/aptos.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Ends by Vidhi
+
+.no-records-cell {
+  height: 200px; /* Adjust height as needed */
+  padding: 0; /* Remove padding if any */
+}
+
+#dateRange_selector {
+  width: 100% !important;
+  .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+  }
+  .mat-form-field-underline {
+    display: none !important;
+  }
+}
+
+.handPointer {
+  cursor: pointer; /* This changes the cursor to a hand when hovering over the button */
+}
+
+body.light-mode .noDataLabel {
+  color: black;
+}
+body.dark-mode .noDataLabel {
+  color: white;
+}
+
+/* component-name.component.css */
+.p-column-filter-menu-button,
+.p-column-filter-clear-button {
+  display: none !important;
+}
+body.light-mode .showingDate {
+  color: black;
+}
+body.dark-mode .showingDate {
+  color: white;
+}
+body.light-mode .p-paginator-rpp-options.p-dropdown.p-component {
+  width: 90px !important;
+}
+body.dark-mode .p-paginator-rpp-options.p-dropdown.p-component {
+  width: 90px !important;
+}
+body.light-mode .p-dropdown-trigger {
+  background-color: white !important;
+}
+body.dark-mode .p-dropdown-trigger {
+  background-color: #0b1523 !important;
+}
+.p-paginator-bottom.p-paginator.p-component.ng-star-inserted {
+  border: none !important;
+  padding: 0.3em !important;
+}
+body.dark-mode .p-dropdown .p-dropdown-label {
+  background-color: #0b1523 !important;
+}
+body.light-mode .p-dropdown .p-dropdown-label {
+  background-color: white !important;
+}
+body.dark-mode .p-inputtext {
+  color: white;
+}
+body.light-mode .p-inputtext {
+  color: black;
+}
+
+/* Placeholder styling for light mode */
+body.light-mode {
+  .custom-placeholder::placeholder {
+    color: #6e6e6e; /* Light theme placeholder color */
+  }
+}
+
+/* Placeholder styling for dark mode */
+body.dark-mode {
+  .custom-placeholder::placeholder {
+    color: #bbbbbb; /* Dark theme placeholder color */
+  }
+}
+
+/* This ensures that the placeholder color changes based on the theme */
+.custom-placeholder {
+  &::placeholder {
+    transition: color 0.3s ease; /* Smooth transition when theme changes */
+  }
+}
+
+body.dark-mode span.mat-date-range-input-separator {
+  color: white;
+}
+/* Graph Card Styles */
+body.light-mode .OpgraphCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0.75rem;
+  min-height: 260px;
+  background-color: #f8fcff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  float: none;
+  height: 350px;
+  width: 100 !important;
+}
+
+body.dark-mode .OpgraphCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0.75rem;
+  min-height: 260px;
+  background-color: #001c57;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  float: none;
+  height: 350px;
+  width: 100 !important;
+}
+
+body.dark-mode .apexcharts-tooltip {
+  background: white;
+  color: black;
+}
+
+body.light-mode .apexcharts-tooltip {
+  background: white;
+  color: black;
+}
+body.light-mode span.excelDownloadTeamAttendance {
+  color: black;
+}
+
+body.dark-mode span.excelDownloadTeamAttendance {
+  color: white !important;
+}
+
+body.dark-mode .theme {
+  background-color: #001c57;
+  border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  color: #001c57;
+}
+body.light-mode .theme {
+  background-color: #f2faff;
+  box-shadow: 0px 0px 5px #f2faff;
+  color: #001c57;
+}
+
+body.dark-mode .labelColor {
+  //background-color: white;
+  //border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  color: white;
+}
+body.light-mode .labelColor {
+  //background-color: #f2faff;
+  //box-shadow: 0px 0px 5px #f2faff;
+  color: black;
+}
+
+body.dark-mode .themedll {
+  background-color: #001c57;
+  color: white;
+  border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  //color: #001c57;
+}
+body.light-mode .themedll {
+  background-color: #f2faff;
+  box-shadow: 0px 0px 5px #f2faff;
+  color: #001c57;
+}
+body.light-mode .info-desc {
+  color: black;
+}
+body.dark-mode .info-desc {
+  color: white;
+}
+body.light-mode .tabGridHeader {
+  color: black;
+}
+body.dark-mode .tabGridHeader {
+  color: white;
+}
+
+body.dark-mode .p-tabview .p-tabview-panels {
+  padding: 0px;
+  background-color: #01203f;
+}
+
+body.light-mode .p-tabview .p-tabview-panels {
+  padding: 0px;
+  background-color: white;
+}
+body.dark-mode .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background-color: #01203f;
+  color: #707070 !important;
+}
+body.light-mode .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background-color: white;
+  color: #707070 !important;
+}
+body.light-mode .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #0033A0;
+  color: white !important;
+}
+body.dark-mode .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #0033A0;
+  color: white !important;
+}
+body.dark-mode .iconTheme{
+ color: white;
+}
+body.light-mode .iconTheme{
+  color: black;
+ }
+
+body.dark-mode .p-datatable .p-datatable-tfoot > tr > td {
+  background-color: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+}

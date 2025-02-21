@@ -1,0 +1,10 @@
+<select
+  (change)="onSelect($event)"
+  class="themedll"
+  style="width: 100%; padding: 9px 5px; font-size: 14px; border-radius: 4px"
+>
+  <!-- <option value="">All</option> -->
+  <option *ngFor="let option of options" [value]="option.key">
+    {{ option.value }}
+  </option>
+</select>

@@ -1,0 +1,26 @@
+@media (max-width: 768px) {
+
+    .filter-chip,
+    .filter-date {
+        width: 100%;
+        /* Ensure full width on mobile */
+    }
+}
+
+@media (max-width: 1366px) and (min-width: 1024px) {
+
+    .filter-chip,
+    .filter-date {
+        width: 100%;
+        /* Ensure full width on iPad Pro */
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .filter-chip,
+    .filter-date {
+        width: 100%;
+        /* Ensure full width on smaller devices */
+    }
+}

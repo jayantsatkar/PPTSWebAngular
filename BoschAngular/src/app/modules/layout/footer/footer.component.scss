@@ -1,0 +1,36 @@
+.row {
+  margin: 0px;
+  margin-top: 15px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: #EEEEEE;
+  box-shadow: 0px -1px 0px #DDDDDD;
+  font-weight: 500;
+  font-size: 13px;
+  font-family: aptos !important ;
+  z-index: 1;
+}
+
+.ttl-text {
+  color: #2368AD;
+  text-decoration: none;
+}
+
+.facebook-icon,
+.twitter-icon {
+  margin-right: 8px;
+}
+
+.social-section-collapsed {
+  float: right;
+}
+
+
+.copy-right-text{
+  white-space: nowrap;
+}

@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+mat-drawer{
+  width: 240px;
+  background-color: #2A3042;
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+.menu-open {
+  width: 350px !important;
+  transition: ease-in-out;
+  background-color: #2A3042;
+}
+
+.menu-close {
+  width: 70px !important;
+  background: #2A3042 !important;
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1) !important;
+  transition: ease-in-out;
+}

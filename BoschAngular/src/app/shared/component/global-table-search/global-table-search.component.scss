@@ -1,0 +1,61 @@
+.global-search-container {
+  display: flex;
+  align-items: center;
+  // margin-bottom: 10px;
+  justify-content: flex-start;
+
+  .p-input-icon-left {
+    position: relative;
+    width: 100%;
+
+    .pi-search {
+      position: absolute;
+      left: 10px;
+      top: 74%;
+      transform: translateY(-50%);
+      color: #999;
+    }
+
+    input {
+      width: 100%; // Full width for mobile screens
+      padding-left: 35px;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+    }
+  }
+
+  //   // Tablet and larger screens
+  //   @media (min-width: 768px) {
+  //     .p-input-icon-left {
+  //       input {
+  //         max-width: 500px; // Wider input for tablets
+  //       }
+  //     }
+  //   }
+
+  //   // Desktop screens
+  //   @media (min-width: 1024px) {
+  //     .p-input-icon-left {
+  //       input {
+  //         max-width: 600px; // Even wider input for desktop
+  //       }
+  //     }
+  //   }
+
+  //   // Extra large screens
+  //   @media (min-width: 1440px) {
+  //     .p-input-icon-left {
+  //       input {
+  //         max-width: 700px; // Max width for extra-large screens
+  //       }
+  //     }
+  //   }
+}

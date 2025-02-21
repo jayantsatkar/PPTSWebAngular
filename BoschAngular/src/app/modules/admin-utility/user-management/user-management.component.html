@@ -1,0 +1,113 @@
+<div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+ 
+<div class="container-fluid card px-2 pt-0">
+    <div class="col-sm-12 px-2 pt-1 my-2 label" style="font-size: 20px;">
+        User Management
+    </div>
+</div>
+ 
+ 
+ 
+ 
+<div class="px-2">
+    <div class="card px-2 py-2 rounded" style="border-radius: 5px !important;">
+        <div class="row card OpFormCard mb-3 px-2 pb-2">
+            <div class="col-md-12 row align-items-center">
+                <!-- Search Bar -->
+                <!-- <div class="col-md-3 pb-2 d-flex align-items-center">
+                    <app-global-table-search></app-global-table-search>
+                </div> -->
+ 
+                <!-- Buttons Group Aligned to the Right -->
+                <div class="d-flex gap-3 mb-2 justify-content-end">
+                    <app-global-table-search></app-global-table-search>
+                    <button class="btn button" style="width: 7em;">Show Result</button>
+                    <button class="btn button" style="width: 7em;">Back to List</button>
+                    <button class="btn button" style="width: 7em;" (click)="addCreateUserDialog()">Create User</button>
+                    <button class="col-md-1 btn button" [disabled]="isExcelbtnDisabled" (click)="onExcelDownload()">
+                        <i class="fa-solid fa-download" style="width: 7em;"></i>
+                        Export</button>
+                    <button class="btn button" style="width: 7em;">Cancel</button>
+                </div>
+            </div>
+ 
+            <div class="table">
+                <p-table 
+                    [value]="product" 
+                    pt-0 pb-0 p-0 
+                    [tableStyle]="{
+                    'min-width': '30rem',
+                    'font-size': '15px',
+                    color: 'black'
+                    }" 
+                    scrollHeight="400px" 
+                    [scrollable]="true" 
+                    responsiveLayout="scroll" 
+                    [lazy]="true"
+                    (onLazyLoad)="loadRolesData($event)"
+                    [paginator]="true" 
+                    [rows]="rows" 
+                    [(first)]="first" 
+                    [totalRecords]="totalRecords"
+                    [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="rowsPerPageOptions"
+                    (onPage)="onpaginationfilter($event)"> 
+    
+                    <ng-template pTemplate="header">
+                        <tr class="fontcolor">
+                            <th style="text-align: center; border-top-left-radius: 10px;">Sr. No.</th>
+                            <th style="text-align: center">Login Name</th>
+                            <th style="text-align: center">User Name</th>
+                            <th style="text-align: center">Role</th>
+                            <th style="text-align: center">Status</th>
+                            <th style="text-align: center; border-top-right-radius: 10px;">Actions</th>
+                        </tr>
+                    </ng-template>
+   
+                    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+                        <tr>
+                            <td style="text-align: center;">{{ rowIndex + 1 }}</td>
+                            <td style="text-align: center;">{{ product.LoginId }}</td>
+                            <td style="text-align: center;">{{ product.FirstName }}</td>
+                            <td style="text-align: center;">{{ product.RoleName }}</td>
+                            <td style="text-align: center;">{{ product.status }}</td>
+
+                                
+   
+
+                            <td class="fontcolor" style="text-align: center; vertical-align: middle;">
+                                <!-- Menu Trigger Button - Only showing 3 dots (ellipsis) -->
+                                <div (click)="toggleActions(product, rowIndex)" [matMenuTriggerFor]="menu">
+                                    <i class="menu-icon fa-solid fa-ellipsis-vertical" style="cursor: pointer;"></i>
+                                </div>
+
+                                <!-- Mat Menu for actions -->
+                                <mat-menu #menu="matMenu">
+                                    <button mat-menu-item (click)="editProduct(product)">
+                                        <i class="fa fa-edit" style="cursor: pointer; margin-right: 10px;"></i>Edit
+                                    </button>
+                                    <button mat-menu-item (click)="configFingerPrintProduct(product)">
+                                        <i class="fa fa-fingerprint" style="cursor: pointer; margin-right: 10px;"></i>Config Finger Print
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                    </ng-template>
+   
+                    <ng-template pTemplate="emptymessage" let-downTime>
+                        <td colspan="10">
+                            <br />
+                            <nodata-found></nodata-found>
+                        </td>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+ 
+       
+    </div>
+</div>
+<div class="dialog-overlay" *ngIf="importRole"></div>

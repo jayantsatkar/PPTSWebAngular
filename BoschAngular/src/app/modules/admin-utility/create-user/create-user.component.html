@@ -1,0 +1,175 @@
+<!-- <p>user-management works!</p> -->
+<div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+<div >
+    <div >
+        <!-- <button  class="close-btn position-absolute top-0 end-0 p-2" (click)="closeDialog()" >
+            <i class="fa fa-times"></i>
+        </button> -->
+        <div class="container-fluid">
+            <div class="col-sm-12 border-bottom px-0 pb-2 mb-3 label" style="font-size: 20px;">
+                Create User
+            </div>
+            <div class="card OpFormCard mb-3 px-2" style="display: block;">
+                <form [formGroup]="userForm"  class="col-sm-12 row p-1" (ngSubmit)="onCreateUserSubmit()" style="padding: 20px!important;">
+                    <div class="col-sm-4">
+                        <label for="loginName" class="dialogLabel">Login Name<span class="validate">*</span></label>
+                        <input type="text" id="roleCode" name="roleCode" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Login name" [disabled]="isEditMode" />
+                        <div *ngIf="userForm.get('loginName')?.invalid && (userForm.get('loginName')?.dirty || userForm.get('loginName')?.touched)" class="text-danger">
+                       Login name is required.
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <label for="rolename" class="dialogLabel">Role Name<span class="validate">*</span></label>
+                        <input type="text" id="rolename" name="rolename" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Role Name" [disabled]="isEditMode" />
+                            <div *ngIf="userForm.get('rolename')?.invalid && (userForm.get('rolename')?.dirty || userForm.get('rolename')?.touched)" class="text-danger">
+                                Role name is required.
+                        </div>
+                    </div>
+            
+            
+                    <div class="col-sm-4">
+                        <label for="passward" class="dialogLabel">Passward<span class="validate">*</span></label>
+                        <input type="text" id="passward" name="Passward" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Passward"   [disabled]="isEditMode" />
+                            <div *ngIf="userForm.get('passward')?.invalid && (userForm.get('passward')?.dirty || userForm.get('passward')?.touched)" class="text-danger">
+                                Password is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="confirmPassward" class="dialogLabel">Confirm Passward<span class="validate">*</span></label>
+                        <input type="text" id="confirmPassward" name="confirmPassward" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Confirm Passward"   [disabled]="isEditMode" />
+                            <div *ngIf="userForm.get('confirmPassward')?.invalid && (userForm.get('confirmPassward')?.dirty || userForm.get('confirmPassward')?.touched)" class="text-danger">
+                                Confirm Passward is required.
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="firstName" class="dialogLabel">First Name<span class="validate"></span></label>
+                        <input type="text" id="firstName" name="firstName" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter First Name"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                           First Name is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="middleName" class="dialogLabel">Middle Name<span class="validate"></span></label>
+                        <input type="text" id="middleName" name="middleName" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter Middle Name"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                           Middle Name is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="lastName" class="dialogLabel">Last Name<span class="validate"></span></label>
+                        <input type="text" id="lastName" name="lastName" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter Last Name"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                           Middle Name is required.
+                        </div> -->
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="emailAddress" class="dialogLabel">Email Address<span class="validate">*</span></label>
+                        <input type="text" id="emailAddress" name="emailAddress" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Email Address"   [disabled]="isEditMode" />
+                            <div *ngIf="userForm.get('emailAddress')?.invalid && (userForm.get('emailAddress')?.dirty || userForm.get('emailAddress')?.touched)" class="text-danger">
+                                Email Address is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="address" class="dialogLabel">Address<span class="validate"></span></label>
+                        <input type="text" id="address" name="address" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter Email Address"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                        Address is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="city" class="dialogLabel">City<span class="validate"></span></label>
+                        <input type="text" id="city" name="city" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter City"  [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                          Email Address is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="state" class="dialogLabel">State<span class="validate"></span></label>
+                        <input type="text" id="state" name="state" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter state"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                          Email Address is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="country" class="dialogLabel">Country<span class="validate"></span></label>
+                        <input type="text" id="country" name="country" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter Country"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                          Email Address is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pinCode" class="dialogLabel">Pin <Code></Code><span class="validate"></span></label>
+                        <input type="text" id="pinCode" name="pinCode" class="col-sm-4 inputField placeholder-color" 
+                            placeholder="Enter Pin Code"   [disabled]="isEditMode" />
+                        <!-- <div *ngIf="roleCode.invalid && (roleCode.dirty || roleCode.touched)" class="text-danger">
+                          Email Address is required.
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="mobileNum" class="dialogLabel">Mobile No.<span class="validate">*</span></label>
+                        <input type="text" id="mobileNum" name="mobileNum" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Mobile No." 
+                              [disabled]="isEditMode" />
+                              <div *ngIf="userForm.get('mobileNum')?.invalid && (userForm.get('mobileNum')?.dirty || userForm.get('mobileNum')?.touched)" class="text-danger">
+                                Mobile No is required.
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="employeeId" class="dialogLabel">Employee Id <span class="validate">*</span></label>
+                        <input type="text" id="employeeId" name="employeeId" class="col-sm-4 inputField placeholder-color" required
+                            placeholder="Enter Employee ID"   [disabled]="isEditMode" />
+                            <div *ngIf="userForm.get('employeeId')?.invalid && (userForm.get('employeeId')?.dirty || userForm.get('employeeId')?.touched)" class="text-danger">
+                                Employee Id is required.
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 row" style="display: flex;">
+                        <div class="col-sm-6 p-2 d-flex justify-content-center align-items-center">
+                          <label for="active" class="dialogLabel px-3" style="font-size: 15px;">Active</label>
+                          <input type="checkbox" id="active" name="active"  />
+                        </div>
+                        <div class="col-sm-6 p-2 d-flex justify-content-center align-items-center">
+                          <label for="active" class="dialogLabel px-3" style="font-size: 15px;">isFingerPrintActive</label>
+                          <input type="checkbox" id="active" name="active" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 row">
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button class="col-sm-2 btn button" type="reset"
+                                (click)="this.resetUserForm()">Clear</button>
+                        </div>
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button class="col-sm-2 btn button" type="button" (click)="redirectback()">Back to List</button>
+                        </div>
+
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button style="width: 50px;" class="col-sm-2 btn button" type="submit"
+                                [disabled]="userForm.invalid || userForm.invalid">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

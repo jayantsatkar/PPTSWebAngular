@@ -1,0 +1,118 @@
+<mat-toolbar>
+  <!-- menu -->
+  <span>
+    <a (click)="toggleSidebar()">
+      <img src="./assets/images/icons/menu.svg" alt="" class="toggle-menu" />
+    </a>
+  </span>
+  <!-- TTL Logo -->
+  <!-- <span class="tata-logo">
+    <img
+      src="../../../../assets/images/img/tenneco-logo.jpg"
+      alt=""
+      class="logo-img"
+    />&nbsp;
+  </span> -->
+  <!-- <span style="color: white; font-size: 14px; margin: 2px 0px 0px 0px"
+  >| OAE Dashboard</span
+  > -->
+
+  <span class="example-spacer"></span>
+  <app-dark-mode-toggle
+    class="toolbar-input"
+    (darkModeChange)="onDarkModeChange($event)"
+  ></app-dark-mode-toggle>
+  <span style="color: white; text-transform: uppercase">{{
+    selectedText
+  }}</span>
+  <div class="toolbar-icons">
+    <div class="dropdown-wrapper">
+      <!-- <i
+          class="pi pi-globe"
+          aria-hidden="true"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+  ></i> -->
+
+      <img
+        src="./../../../../assets/images/img/language_icon.svg"
+        alt=""
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        class="language-icon"
+        title="Select Language"
+        style="cursor: pointer; margin: 4px"
+      />
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)="onSelectionChange('en')">{{ "lang.english" | translate }}</a>
+        <!-- <a class="dropdown-item" (click)="onSelectionChange('pl')">{{ "lang.polish" | translate }}</a> -->
+        <a class="dropdown-item" (click)="onSelectionChange('du')">{{ "lang.german" | translate }}</a>
+      </div>
+
+      <span
+        class="hide-on-mobile-and-tablet"
+        style="color: white; font-size: 16px; margin-left: 1em"
+        >{{
+          dateTime
+            | date
+              : "yyyy-MM-dd
+          HH:mm:ss"
+        }}</span
+      >
+    </div>
+
+    <!-- <app-dark-mode-toggle
+        class="toolbar-input"
+        (darkModeChange)="onDarkModeChange($event)"></app-dark-mode-toggle> 
+        -->
+    <button class="user-section" [matMenuTriggerFor]="menu">
+      <div>
+        <img
+          src="./assets/images/icons/user-logo.svg"
+          alt=""
+          class="user-icon"
+        />
+        <!-- <span class="user-name">John</span> -->
+        <span> {{ userName }} {{ lastName }}</span>
+      </div>
+      <!-- <img
+          src="./assets/images/icons/chevron.svg"
+          alt=""
+          class="chevron-icon"
+        /> -->
+    </button>
+    <mat-menu #menu="matMenu" class="mt-3">
+      <button mat-menu-item (click)="logOut()">
+        <img
+          alt=""
+          style="color: white !important"
+        />
+        Sign Out
+      </button>
+    </mat-menu>
+    &nbsp; &nbsp;
+    <!-- 
+    <i
+        class="pi pi-send"
+        (click)="Navigation()"
+        style="color: white; margin-top: 12px"
+  ></i> -->
+    <!-- <img
+      src="./assets/images/icons/ignitionIcon.svg"
+      alt="Send Icon"
+      (click)="Navigation()"
+      style="
+        width: 25px;
+        height: 31px;
+        margin-top: 3px;
+        color: white;
+        cursor: pointer;
+      "
+    /> -->
+    &nbsp; &nbsp;
+    <!-- <i class="pi pi-power-off handPointer" (click)="logOut()" style="color: white; margin-top: 12px"></i> -->
+  </div>
+</mat-toolbar>

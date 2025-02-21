@@ -1,0 +1,34 @@
+<!-- <div class="col-12 d-flex align-items-center">
+  <div class="col-md-9 px-2">
+    <app-mat-chip-filter
+    *ngIf="isPlantHierarchyRequired"
+      [componetFrom]="componetFrom"
+      (chipSelectionEventChange)="onChipSelectionChange($event)"
+      (chipRemoveEventChange)="onChipRemoveEventChange($event)"
+    ></app-mat-chip-filter>
+  </div>
+  <div class="col-md-3 pe-md-3">
+    <date-range-filter
+      *ngIf="isDateRangeFilterRequired"
+      [maxDate]="maxDate"
+      (onSearch)="onDateRangeFilter()"
+      [additionalButtonContent]="childContent"
+    ></date-range-filter>
+    <ng-container *ngTemplateOutlet="additionalContent"></ng-container>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-filter d-flex flex-wrap align-items-center">
+    <div class="filter-chip col-md-12 col-lg-9 px-2 "> <!-- col-md-12 for mobile, col-lg-9 for desktop -->
+      <app-mat-chip-filter *ngIf="isPlantHierarchyRequired" [componetFrom]="componetFrom"
+        (chipSelectionEventChange)="onChipSelectionChange($event)"
+        (chipRemoveEventChange)="onChipRemoveEventChange($event)"></app-mat-chip-filter>
+    </div>
+    <div class="filter-date col-md-12 col-lg-3 px-2 mt-2 mt-md-0"> <!-- col-md-12 for mobile, col-lg-3 for desktop -->
+      <date-range-filter *ngIf="isDateRangeFilterRequired" [maxDate]="maxDate" (onSearch)="onDateRangeFilter()"
+        [additionalButtonContent]="childContent"></date-range-filter>
+      <ng-container *ngTemplateOutlet="additionalContent"></ng-container>
+    </div>
+  </div>
+</div>

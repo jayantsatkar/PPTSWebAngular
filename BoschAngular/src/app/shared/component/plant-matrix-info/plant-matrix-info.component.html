@@ -1,0 +1,22 @@
+<div class="card" style="background-color: #0c1524">
+  <div class="card-body">
+    <h4 class="card-title" style="color: white; text-align: center">
+      {{ matrixData.name }}
+    </h4>
+    <div class="row">
+      <img src="../../../assets/images/img/factory.JPG" alt="Card image cap" />
+    </div>
+    <plant-matrix-value [matrixItems]="matrixData.items"></plant-matrix-value>
+    <div class="row justify-content-md-center" style="text-align: center">
+      <div class="col col-lg-12">
+        <button
+          class="btn btn-sm btn-primary"
+          (click)="onMatrixInfoButtonClick(matrixData)"
+          [disabled]="dashboardAllValuesZero(matrixData)"
+        >
+          {{ buttonLabel }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

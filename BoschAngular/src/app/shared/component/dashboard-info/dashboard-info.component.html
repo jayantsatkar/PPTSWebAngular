@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="row py-3">
+        <div class="col-md-2 col-3 info-container" *ngFor="let item of dashboardInfoData;">
+            <div [ngStyle]="item.style">
+                <div class="info-header">
+                    <label [ngStyle]="{color:item.color}">{{item.header}}</label>
+                </div>
+                <div class="info-body">
+                    <span>{{item.description}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

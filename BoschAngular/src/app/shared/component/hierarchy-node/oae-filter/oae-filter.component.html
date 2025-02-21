@@ -1,0 +1,19 @@
+<button
+  pButton
+  pRipple
+  type="button"
+  icon="pi pi-filter"
+  class="p-button-rounded p-button-text p-button-plain p-button-raised"
+  (click)="hide()"
+></button>
+
+<ng-container *ngIf="isShow && items.length > 0">
+  <node-container
+    [@oaeFilterCCollapse]="isShow ? 'expanded' : 'collapsed'"
+    [ngClass]="{ hidden: !isShow }"
+    [nodes]="items"
+    [ngStyle]="{ position: 'absolute', top: '51px', left: '19px', zIndex: 9 }"
+    #nodeContainer
+  >
+  </node-container>
+</ng-container>

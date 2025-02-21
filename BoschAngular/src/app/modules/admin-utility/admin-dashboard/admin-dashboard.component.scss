@@ -1,0 +1,132 @@
+.card {
+    border-radius: 0px !important;
+    border: none;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep body.dark-mode .label {
+    color: white;
+    font-weight: 600;
+}
+
+::ng-deep body.light-mode .label {
+    color: black;
+    font-weight: 600;
+}
+
+::ng-deep body.light-mode .dialogLabel {
+    color: black;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 5px 0px 7px 0px;
+    display: flex;
+}
+
+::ng-deep body.dark-mode .dialogLabel {
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 5px 0px 7px 0px;
+    display: flex;
+}
+
+::ng-deep body.light-mode .OpFormCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px !important;
+    background-color: #f8fcff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-bottom: 20px;
+    float: none;
+    width: 100% !important;
+    padding: 18px 0px 0px 0px;
+}
+
+::ng-deep body.dark-mode .OpFormCard {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px !important;
+    background-color: #001c57;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-bottom: 20px;
+    float: none;
+    width: 100% !important;
+    padding: 18px 0px 0px 0px;
+}
+
+::ng-deep body.dark-mode .statcard {
+    padding: 1rem;
+    background-color: #0b1523;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep body.light-mode .statcard {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background-size: cover;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep body.dark-mode .circle-container {
+    width: 70px;
+    height: 70px;
+    background-color: #001c57;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+::ng-deep body.light-mode .circle-container {
+    width: 70px;
+    height: 70px;
+    background-color: #2368AD1A;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.stat-icon {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+::ng-deep body.light-mode .cardText{
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+
+::ng-deep body.dark-mode .cardText{
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+a{
+    text-decoration: none !important; /* Removes the underline */
+    color: inherit; /* Ensures the text color doesn't change */
+}

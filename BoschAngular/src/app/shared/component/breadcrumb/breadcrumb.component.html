@@ -1,0 +1,8 @@
+<div class="container-fluid px-2">
+  <p-breadcrumb
+    [model]="breadcrumbItems"
+    #breadcrumb
+    [home]="home"
+    (onItemClick)="onBreadcrumbClick($event)"
+  ></p-breadcrumb>
+</div>

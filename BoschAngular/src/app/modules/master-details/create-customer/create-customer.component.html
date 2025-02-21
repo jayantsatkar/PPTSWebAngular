@@ -1,0 +1,76 @@
+<!-- <div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+<div>
+    <div>
+
+        <div class="container-fluid">
+            <div class="col-sm-12 border-bottom px-0 pb-2 mb-3 label" style="font-size: 20px;">
+                Create Customer
+            </div>
+            <div class="card OpFormCard mb-3 px-2" style="display: block;">
+                <form [formGroup]="createCustomer" (ngSubmit)="onSubmit()" class="col-sm-12 row p-1"
+                    style="padding: 20px!important;">
+                    <div class="col-sm-4 pb-4">
+                        <label for="customerCode" class="dialogLabel">Customer Code<span
+                                class="validate">*</span></label>
+                        <input type="text" id="customerCode" class="col-sm-4 inputFieldCustomer placeholder-color"
+                            formControlName="customerCode" placeholder="Enter Customer code" [disabled]="isEditMode" />
+                        <div *ngIf="createCustomer.get('customerCode')?.invalid && createCustomer.get('customerCode')?.touched"
+                            class="text-danger">
+                            Customer code is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-4">
+                        <label for="customerName" class="dialogLabel">Customer Name<span
+                                class="validate">*</span></label>
+                        <input type="text" id="customerName" class="col-sm-4 inputFieldCustomer placeholder-color"
+                            formControlName="customerName" placeholder="Enter Customer name" [disabled]="isEditMode" />
+                        <div *ngIf="createCustomer.get('customerName')?.invalid && createCustomer.get('customerName')?.touched"
+                            class="text-danger">
+                            Customer name is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-4">
+                        <label for="customerIndex" class="dialogLabel">Customer Index<span
+                                class="validate">*</span></label>
+                        <input type="text" id="customerIndex" class="col-sm-4 inputFieldCustomer placeholder-color"
+                            formControlName="customerIndex" placeholder="Enter Customer Index"
+                            [disabled]="isEditMode" />
+                        <div *ngIf="createCustomer.get('customerIndex')?.invalid && createCustomer.get('customerIndex')?.touched"
+                            class="text-danger">
+                            Customer Index is required.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-4">
+                        <label for="addressLine1" class="dialogLabel">Address Line 1</label>
+                        <input type="text" id="addressLine1" class="col-sm-4 inputFieldCustomer placeholder-color"
+                            formControlName="addressLine1" placeholder="Enter Address Line 1" [disabled]="isEditMode" />
+                    </div>
+
+                    <div class="col-sm-4 pb-4">
+                        <label for="addressLine2" class="dialogLabel">Address Line 2</label>
+                        <input type="text" id="addressLine2" class="col-sm-4 inputFieldCustomer placeholder-color"
+                            formControlName="addressLine2" placeholder="Enter Address Line 2" [disabled]="isEditMode" />
+                    </div>
+
+                    <div class="col-sm-12 row">
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button class="col-sm-2 btn button" type="button" (click)="resetForm()">Reset</button>
+                        </div>
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button class="col-sm-2 btn button" type="button" (click)="redirectBack()">Back to List</button>
+                        </div>
+                        <div class="col-sm-4 p-2 d-flex justify-content-center align-items-center">
+                            <button class="col-sm-2 btn button" type="button" (click)="onSubmit()">Create</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div> -->

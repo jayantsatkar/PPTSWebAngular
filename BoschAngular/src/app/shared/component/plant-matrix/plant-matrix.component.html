@@ -1,0 +1,35 @@
+<!-- <ng-container>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let _obj of matrixItems; let i = index">
+      <span [ngClass]="_obj.headerStyle">{{ _obj.title }}</span>
+      <span [ngClass]="_obj.valueStyle"
+        >{{ _obj.value | number : "1.2-2" }} %</span
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" [ngClass]="matrixItem.valueStyle">
+      {{ matrixItem.value | number : "1.2-2" }} %
+    </div>
+  </div>
+</ng-container> -->
+<!-- getFontSize(_obj.value) -->
+<div class="row">
+  <div
+    class="col-12 col-sm-6 col-md-4 col-lg-4"
+    *ngFor="let _obj of matrixItems; let i = index"
+    style="text-align: center"
+  >
+    <span [ngStyle]="{ color: _obj.headerStyle.color }" class="matrix-header">{{
+      _obj.title
+    }}</span>
+    <span
+      [ngStyle]="{
+        color: getColorForValue(_obj.value),
+        fontSize: '1.3rem'
+      }"
+      class="matrix-value"
+      >{{ _obj.value | number : "1.2-2" }} %</span
+    >
+  </div>
+</div>

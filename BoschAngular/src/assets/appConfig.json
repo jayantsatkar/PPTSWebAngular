@@ -1,5 +1,6 @@
 {
     "commonUrl": "http://localhost:5062/",
     "devUrl": "http://Dev",
-    "refreshTime":"60"
+    "refreshTime":"60",
+    "plantIdEdenkoben":"Pune"
 }

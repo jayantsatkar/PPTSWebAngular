@@ -1,0 +1,38 @@
+<mat-form-field class="breadcrumb mb-0" appearance="outline" #matFiled>
+  <mat-chip-list #chipList>
+    <mat-chip
+      (click)="removeChipOnChipItemClick(crumb)"
+      *ngFor="let crumb of crumbs; let i = index"
+      (removed)="removeChip(crumb)"
+    >
+      {{ crumb.title }}
+      <i
+        matChipRemove
+        class="fa fa-times-circle"
+        *ngIf="i > 0"
+        style="margin-top: 3px"
+        aria-hidden="true"
+      ></i>
+    </mat-chip>
+    <!-- [placeholder]=" 'SELECT_NEXT' | translate " -->
+    <input
+      class="custom-placeholder"
+      [placeholder]=" 'SELECT_NEXT' | translate "
+      #crumbInput
+      [formControl]="crumbCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="addChip($event)"
+      *ngIf="isProceedForNextSearch"
+    />
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAutocompleteSelected($event)">
+    <mat-option
+      *ngFor="let crumb of filteredCrumbs | async"
+      [value]="'crumb.title'"
+    >
+      {{ crumb.title }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

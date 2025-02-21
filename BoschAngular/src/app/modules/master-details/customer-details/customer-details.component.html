@@ -1,0 +1,90 @@
+<!-- <div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div> -->
+
+<div class="container-fluid card px-2 pt-0">
+    <div class="col-sm-12 px-2 pt-1 my-2 label" style="font-size: 20px;">
+        Customer Details
+    </div>
+</div>
+<div class="px-2">
+    <div class="card px-2 py-2 rounded" style="border-radius: 5px !important;">
+        <div class="row card OpFormCard mb-3 px-2 pb-2">
+            <div class="col-md-12 row align-items-center">
+               
+
+              
+                <div class="d-flex gap-3 mb-2 justify-content-end">
+                    <!-- <app-global-table-search></app-global-table-search> -->
+                    <!-- <button class="btn button" style="width: 7em;">Show Result</button> -->
+                    <!-- <button class="btn button" style="width: 7em;">Back to List</button> -->
+                    <button class="btn button" (click)="createcustomercomponent()" style="width: 9em;">Create
+                        Customer</button>
+                    <button class="btn button" style=" width: 7em;">
+                        <i class="fa-solid fa-download" style="padding-right: 4px;"></i>Export
+                    </button>
+                    <!-- <button class="btn button" style="width: 7em;">Cancel</button> -->
+                </div>
+            </div>
+<!-- 
+            <div class="table">
+                <p-table [value]="details" pt-0 pb-0 p-0 [tableStyle]="{
+                    'min-width': '30rem',
+                    'font-size': '15px',
+                    color: 'black'
+                  }" scrollHeight="400px" [scrollable]="true" responsiveLayout="scroll" [lazy]="true"
+                    [paginator]="true" [rows]="rows" [(first)]="first" [showCurrentPageReport]="true"
+                    [rowsPerPageOptions]="rowsPerPageOptions">
+
+                    <ng-template pTemplate="header">
+                        <tr class="fontcolor">
+                            <th style="text-align: center; border-top-left-radius: 10px;">Sr. No.</th>
+                            <th style="text-align: center; border-top-left-radius: 10px;">Customer Code</th>
+                            <th style="text-align: center">Customer Name</th>
+                            <th style="text-align: center">Customer Index</th>
+                            <th style="text-align: center">Address Line1</th>
+                            <th style="text-align: center">Address Line2</th>
+                            <th style="text-align: center; border-top-right-radius: 10px;">Actions</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-details let-rowIndex="rowIndex">
+                        <tr>
+                            <td style="text-align: center;">{{ rowIndex + 1 }}</td>
+                            <td readonly style="text-align: center;">{{ details.customerCode}}</td>
+                            <td style="text-align: center;">{{ details.customerName }}</td>
+                            <td style="text-align: center;">{{ details.customerIndex }}</td>
+                            <td style="text-align: center;">{{ details.addressLine1 }}</td>
+                            <td style="text-align: center;">{{ details.addressLine2 }}</td>
+
+
+                            <td class="fontcolor" style="text-align: center;vertical-align: middle;" *ngIf="isEditMode">
+                               
+                                <button (click)="editCustomerDetails()" class="btn button"
+                                    style="width: 5em;display: inline-block; margin: 0 auto;">
+                                    <i class="fa fa-edit" style="cursor: pointer; margin-right: 10px;"></i>Edit
+                                </button>
+
+                             
+                            </td>
+
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="emptymessage" let-downTime>
+                        <td colspan="10">
+                            <br />
+                            <nodata-found></nodata-found>
+                        </td>
+                    </ng-template>
+                </p-table>
+            </div> -->
+
+
+
+
+        </div>
+
+
+    </div>
+</div>

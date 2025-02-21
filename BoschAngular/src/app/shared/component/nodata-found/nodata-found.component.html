@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center" style="color: black">
+  <ng-container *ngIf="displayPreText; else elseTemplate">
+    <div
+      class="alert alert-info mb-2 p-1"
+      role="alert"
+      style="width: 100%; text-align: center"
+    >
+      <span style="color: black">
+        <i class="pi pi-info-circle" style="font-size: 0.9rem"></i>
+        <span class="mx-2" style="font-size: 13px; vertical-align: text-top"
+          >{{ "Shift" }} Data not found</span
+        >
+      </span>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <i class="pi pi-info-circle noDataLabel" style="font-size: 1rem"></i>
+    <span class="mx-2 noDataLabel">{{"NO_DATA_FOUND" | translate}}</span>
+  </ng-template>
+</div>

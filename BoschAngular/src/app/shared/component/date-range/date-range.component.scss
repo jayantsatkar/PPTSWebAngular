@@ -1,0 +1,177 @@
+:host {
+  .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+  }
+  mat-form-field {
+    width: 60%;
+  }
+
+  // Styles for the date range input
+  mat-date-range-input {
+    display: flex;
+    flex-direction: column;
+
+    // Flex display for better alignment
+    input {
+      width: 100%;
+    }
+  }
+
+  // Hint and label styling
+  mat-hint {
+    font-size: 0.875rem; // Smaller font size for hints
+    margin-top: 0.25rem; // Space between hint and input
+  }
+
+  mat-label {
+    font-size: 1rem;
+  }
+
+  // Datepicker toggle icon
+  mat-datepicker-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.pt-2 {
+  padding-top: 0.9rem !important;
+}
+
+body.dark-mode tr.ng-star-inserted {
+  color: white;
+}
+
+body.dark-mode .mat-calendar-header {
+  background-color: #001c57 !important;
+  padding: 8px 8px 1px 8px !important;
+}
+
+body.dark-mode button.mat-focus-indicator.mat-calendar-previous-button {
+  color: white;
+}
+
+body.dark-mode button.mat-focus-indicator.mat-calendar-next-button {
+  color: white;
+}
+
+body.dark-mode .mat-calendar-arrow {
+  color: white !important;
+}
+
+body.dark-mode .mat-calendar-content {
+  padding: 0px 0px 0px 0px !important;
+}
+body.dark-mode .mat-calendar-arrow {
+  border-top-color: white;
+}
+
+body.dark-mode .mat-calendar-controls {
+  color: white;
+}
+
+body.dark-mode .mat-calendar-body-cell-content {
+  color: white;
+}
+
+body.dark-mode table {
+  background-color: #0b1523;
+}
+
+body.dark-mode mat-calendar#mat-datepicker-0 {
+  background-color: #001c57 !important;
+}
+
+body.dark-mode .mat-date-range-input-container {
+  color: white;
+}
+
+body.dark-mode button.mat-focus-indicator.mat-icon-button {
+  color: white;
+  top: -7px;
+  position: relative;
+}
+
+body.light-mode td.mat-calendar-body-label {
+  color: black !important;
+}
+
+th.mat-calendar-table-header-divider {
+  padding: unset !important;
+}
+
+body.dark-mode mat-label {
+  color: white !important;
+}
+
+/* Light Theme
+*/
+
+body.light-mode mat-label {
+  color: black !important;
+}
+
+body.light-mode tr.ng-star-inserted {
+  color: black;
+}
+
+body.light-mode .mat-calendar-arrow {
+  color: black !important;
+}
+
+body.light-mode .mat-calendar-content {
+  padding: 0px 0px 0px 0px !important;
+}
+
+body.light-mode .mat-calendar-arrow {
+  border-top-color: black;
+}
+
+body.light-mode .mat-calendar-controls {
+  color: black;
+}
+
+body.light-mode .mat-calendar-body-cell-content {
+  color: black;
+}
+
+body.light-mode table {
+  background-color: white;
+}
+
+body.light-mode .mat-date-range-input-container {
+  color: black;
+}
+
+body.light-mode button.mat-focus-indicator.mat-icon-button {
+  color: black;
+  top: -7px;
+  position: relative;
+}
+
+
+
+body.light-mode td.mat-calendar-body-label {
+  color: black !important;
+}
+
+body.light-mode table th {
+  background: white !important;
+  color: black !important;
+}
+.p-2.mt-1.pb-1 {
+  border-radius: 1px;
+  border-right: 1px solid;
+  border-left: 1px solid;
+}
+
+body.dark-mode .mt-1 {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  color: #001c57;
+}
+// body.dark-mode span.mat-date-range-input-separator {
+//   color: white;
+// }

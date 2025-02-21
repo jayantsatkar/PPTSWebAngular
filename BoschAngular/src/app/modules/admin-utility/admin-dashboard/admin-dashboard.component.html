@@ -1,0 +1,265 @@
+<!-- <p>admin-dashboard works!</p> -->
+<div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
+<div class="container-fluid card px-2 pt-0">
+    <div class="col-sm-12 px-2 py-2 my-2 label" style="font-size: 20px;">
+        Admin Dashboard
+    </div>
+</div>
+
+<div class="container-fluid px-2">
+    <div class="card p-2 rounded" style="border-radius: 2px !important; 
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1) !important;">
+        <div class="col-sm-12 dialogLabel" style="font-size: 20px;">
+            Master Data and Configuration
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-2" style="margin-top: -7px !important;">
+    <div class="OpFormCard rounded">
+        <div class="container-fluid px-2" style="display: block;">
+            <div class="row">
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/role_skill.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Roles and Skills
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/prod_master.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Product Master
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/Billofmaterials.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Bill of Materials(BOM)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <a [routerLink]="['/admin-utility/user-management']">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-3 circle-container">
+                                    <img class="stat-icon" src="../../../../../assets/images/img/User_Management.svg"
+                                        alt="Badge" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 text-center cardText">
+                                    User Management
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <a [routerLink]="['/admin-utility/role-management']">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-3 circle-container">
+                                    <img class="stat-icon" src="../../../../../assets/images/img/Role_Management.svg"
+                                        alt="Badge" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 text-center cardText">
+                                    Role Management
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- <div class="col-sm-12 row">
+                <div class="OpFormCard col-sm-2 m-2">
+                    Bill of Material
+                </div>
+                <div class="OpFormCard col-sm-2 m-2">
+                    Product Master
+                </div>
+                <div class="OpFormCard col-sm-2 m-2">
+                    Users
+                </div>
+                <div class="OpFormCard col-sm-2 m-2">
+                    Roles and Skills
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-2">
+    <div class="card p-2 rounded" style="border-radius: 2px !important; 
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1) !important;">
+        <div class="col-sm-12 dialogLabel" style="font-size: 20px;">
+            Work Order Scheduling
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-2" style="margin-top: -7px !important;">
+    <div class="OpFormCard rounded">
+        <div class="container-fluid px-2" style="display: block;">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon"
+                                    src="../../../../../assets/images/img/Scheduling_and_Sequencing.svg" alt="Badge" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Scheduling and Sequencing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid px-2">
+    <div class="card p-2 rounded" style="border-radius: 2px !important; 
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1) !important;">
+        <div class="col-sm-12 dialogLabel" style="font-size: 20px;">
+            Production Execution
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-2" style="margin-top: -7px !important;">
+    <div class="OpFormCard rounded">
+        <div class="container-fluid px-2" style="display: block;">
+            <div class="row">
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/RoutingConfiguration.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Routing Configuration
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/SupervisorConsole.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Supervisor Console
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/OperatorConsole.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Operator Console
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/Order_Management.svg"
+                                    alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Order Management
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3">
+                    <div class="statcard">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-3 circle-container">
+                                <img class="stat-icon" src="../../../../../assets/images/img/Quality.svg" alt="Badge" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center cardText">
+                                Quality
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

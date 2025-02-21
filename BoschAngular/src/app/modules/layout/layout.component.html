@@ -1,0 +1,17 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container class="example-container">
+  <mat-drawer
+    class="example-sidenav"
+    [opened]="sideBarOpen"
+    mode="over"
+    [class.menu-open]="sideBarOpen"
+    [class.menu-close]="!sideBarOpen"
+  >
+    <app-nav-sidebar></app-nav-sidebar>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <!-- <app-footer></app-footer> -->
+  </mat-drawer-content>
+</mat-drawer-container>

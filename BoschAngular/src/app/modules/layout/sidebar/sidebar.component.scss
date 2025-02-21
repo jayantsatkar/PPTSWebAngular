@@ -1,0 +1,88 @@
+.link {
+  font-family: aptos !important ;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 10px 10px;
+}
+.sidebar {
+  position: relative;
+  height: 92vh;
+}
+
+.logout-container {
+  position: absolute;
+  bottom: 20px; /* Adjust this value as needed */
+  width: 100%;
+  text-align: center; /* Optional: Center the logout button horizontally */
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+}
+
+.link-text {
+  position: relative;
+  top: 1px;
+}
+
+.list-container {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  background: #2a3042;
+}
+
+::ng-deep .mat-list-item-content {
+  padding: 0 !important;
+}
+
+.menu {
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    list-style: none;
+  }
+}
+
+.menu ul {
+  display: none;
+}
+
+.sub-menu {
+  li a {
+    margin-left: 0px;
+  }
+}
+
+ul li > ul {
+  display: block;
+}
+
+.active {
+  // background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.link:hover {
+  // background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.bg-color {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 6px;
+}

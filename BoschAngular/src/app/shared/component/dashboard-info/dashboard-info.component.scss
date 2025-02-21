@@ -1,0 +1,33 @@
+.info-container {
+  .info-header {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0px 0px 0px 7px;
+  }
+
+  .info-body {
+    font-size: 13px;
+    color: #787676;
+    padding: 0px 0px 0px 7px;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+}
+
+.table {
+  width: 100%;
+  /* Set table width to 100% */
+  border-collapse: collapse;
+  /* Collapse borders */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  /* Add padding */
+  border: 1px solid #ddd;
+  /* Add border */
+}

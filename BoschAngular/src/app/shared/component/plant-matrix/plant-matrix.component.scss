@@ -1,0 +1,18 @@
+.matrix-header {
+  font-weight: 700;
+  text-align: center;
+}
+
+.matrix-value {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.matrix-value {
+  display: block;
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  //text-overflow: ellipsis;
+}

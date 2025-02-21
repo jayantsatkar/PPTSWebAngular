@@ -1,0 +1,381 @@
+
+
+/* General Styles */
+.container-fluid {
+    padding: 10px 20px;
+  }
+
+  
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Breadcrumb Styles */
+  .p-breadcrumb {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Section Header */
+  .label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+
+  ::ng-deep body.dark-mode .button {
+    background: #0033A0;
+    border-radius: 2px;
+    color: white;
+    padding: 3px;
+    font-size: 13px;
+    margin-top: 5px;
+    // width: 4em;
+  }
+  
+  ::ng-deep body.light-mode .button {
+    background: #1968B3;
+    border-radius: 2px;
+    color: white;
+    padding: 3px;
+    font-size: 13px;
+    margin-top: 5px;
+    // width: 4em;
+  }
+  
+  /* Table Styles */
+  .table p-table {
+    font-size: 15px;
+    color: #333;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  p-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  p-table td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  p-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Dialog Overlay */
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .dialog-box {
+    background-color: #fff;
+    width: 100%;
+    max-width: 660px;
+    max-height: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .close-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .dialogLabel {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .validate {
+    color: red;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .card {
+    border-radius: 0px !important;
+    border: none;
+  }
+  
+  ::ng-deep body.light-mode .OpFormCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px !important;
+    // min-height: 260px;
+    background-color: #f8fcff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    float: none;
+    // height: 350px;
+    width: 100% !important;
+    padding: 18px 0px 0px 0px;
+  }
+  
+  ::ng-deep body.dark-mode .OpFormCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px !important;
+    // min-height: 260px;
+    background-color: #001c57;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    float: none;
+    // height: 350px;
+    width: 100% !important;
+    padding: 18px 0px 0px 0px;
+  }
+  
+  ::ng-deep body.dark-mode .inputField {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background: #001c57;
+    height: 2.7em;
+    color: #fff !important;
+    font-size: 12px;
+  }
+  
+  ::ng-deep body.light-mode .inputField {
+    border-radius: 2px;
+    border: 1px solid rgb(168, 168, 168);
+    width: 100%;
+    background: #fff;
+    height: 2.7em;
+    color: #000;
+    font-size: 12px;
+  }
+  ::ng-deep body.dark-mode .placeholder-color::placeholder {
+    color: #fff;
+  }
+   
+  ::ng-deep body.light-mode .placeholder-color::placeholder {
+    color: #000;
+  }
+  
+  ::ng-deep body.dark-mode .button {
+    background: #0033A0;
+    border-radius: 2px;
+    color: white;
+    padding: 3px;
+    font-size: 13px;
+    margin-top: 5px;
+    // width: 4em;
+  }
+  
+  ::ng-deep body.light-mode .button {
+    background: #1968B3;
+    border-radius: 2px;
+    color: white;
+    padding: 3px;
+    font-size: 13px;
+    margin-top: 5px;
+    // width: 4em;
+  }
+  
+  ::ng-deep body.dark-mode .label {
+    color: white;
+    font-weight: 600;
+  }
+  
+  ::ng-deep body.light-mode .label {
+    color: black;
+    font-weight: 600;
+  }
+  
+  ::ng-deep body.light-mode .dialogLabel {
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 5px 0px 7px 0px;
+    display: flex;
+  }
+  
+  ::ng-deep body.dark-mode .dialogLabel {
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 5px 0px 7px 0px;
+    display: flex;
+  }
+  
+  .menu-icon {
+    position: relative;
+  }
+  
+  /* Style for the popup menu */
+  ::ng-deep body.dark-mode .popup-menu {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    top: -3em;
+    right: 83px;
+    width: 8em;
+    height: 6em;
+    padding: 0px;
+    background: black;
+  }
+  
+  ::ng-deep body.light-mode .popup-menu {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    top: -3em;
+    right: 83px;
+    width: 8em;
+    height: 6em;
+    padding: 0px;
+  }
+  
+  /* Style for the list inside the menu */
+  .popup-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .popup-menu ul li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Hover effect for each item in the menu */
+  .popup-menu ul li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* To position the popup near the 3-dot icon */
+  td {
+    position: relative;
+    /* So the menu can be positioned absolutely inside it */
+  }
+  
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .dialog-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    text-align: center;
+  }
+  
+  ::ng-deep body.dark-mode .close-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    margin: 9px;
+  }
+  
+  ::ng-deep body.light-mode .close-btn {
+    color: #000;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    margin: 9px;
+  }
+  
+  .close-btn:hover {
+    color: red;
+  }
+  
+  .validate {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .text-danger {
+    color: red;
+    font-size: 13px;
+    display: flex;
+  }
+  
+  
+  ::ng-deep body.dark-mode .mat-menu-content {
+    background: #0033A0;
+    padding: 0px;
+  }
+  
+  ::ng-deep body.light-mode .mat-menu-content {
+    background: #fff;
+    padding: 0px;
+  }
+  
+  ::ng-deep body.dark-mode .mat-menu-item {
+    color: white;
+  }
+  
+  .btn:disabled{
+    border: none !important;
+  }

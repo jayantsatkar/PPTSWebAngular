@@ -1,0 +1,133 @@
+<div class="container-fluid px-2">
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
+<div  class="container-fluid card px-2 pt-0">
+    <div class="col-sm-12 px-2 py-2 my-2 label" style="font-size: 20px;">
+        Role Management
+    </div>
+</div>
+
+
+<div class="container-fluid px-2">
+    <div class="card px-2 pt-2 rounded" style="border-radius: 5px !important;">
+        <div class="row card OpFormCard mb-3 px-2">
+            <div class="col-md-12 row">
+                <div class="col-md-3 pb-2">
+                    <app-global-table-search (globalTableSearch)="onTextChangedEvent($event)"></app-global-table-search>
+                </div>
+                <div class="col-md-9 p-0">
+                    <div class="col-md-12 p-1 d-flex justify-content-end align-items-left">
+
+                        <button class="col-md-1 btn button" (click)="addRoleDialog()">
+                            <i class="fa-sharp fa-solid fa-plus" style="padding: 0px 4px 0px 0px;"></i>
+                            Add Role</button>
+                        <div style="width: 1em;"></div>
+
+                        <button class="col-md-1 btn button" (click)="importRoleDialog()">
+                            <i class="fa-solid fa-upload" style="padding: 0px 4px 0px 0px;"></i>
+                            Import</button>
+                        <div style="width: 1em;"></div>
+
+                        <button class="col-md-1 btn button" [disabled]="isExcelbtnDisabled" (click)="onExcelDownload($event)" 
+                            style="border-radius: 100px;
+                            width: 2.3em;
+                            height: 2.3em;">
+                            <i class="fa-regular fa-file-excel"></i></button>
+
+                            <!-- <ng-template >
+                              <div class="ms-2">
+                                <button
+                                  pButton
+                                  pRipple
+                                  type="button"
+                                  (click)="onExcelDownload($event)"
+                                  icon="pi pi-file-excel"
+                                  class="p-button-rounded"
+                                  style="background-color: #1968b3"
+                                ></button>
+                              </div>
+                            </ng-template> -->
+                    </div>
+                </div>
+            </div>
+            <div class="table">
+                <p-table  
+                    pt-0 pb-0 p-0 
+                    [tableStyle]="{
+                        'min-width': '30rem',
+                        'font-size': '15px',
+                        color: 'black'}" 
+                    scrollHeight="400px" 
+                    [scrollable]="true" 
+                    responsiveLayout="scroll" 
+                    [value]="roleDetails"
+                    [lazy]="true"
+                    (onLazyLoad)="loadRolesData($event)"
+                    [paginator]="true" 
+                    [rows]="rows" 
+                    [(first)]="first" 
+                    [totalRecords]="totalRecords"
+                    [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="rowsPerPageOptions"
+                    (onPage)="onpaginationfilter($event)">
+
+                <ng-template pTemplate="header">
+                  <tr class="fontcolor">
+                    <th style="border-top-left-radius: 10px;text-align: center">Sr. No.</th>
+                    <th style="text-align: center">Name</th>
+                    <th style="text-align: center; border-top-left-radius: 10px;">Role Code</th>
+                    <th style="text-align: center">Description</th>
+                    <th style="text-align: center">Created On</th>
+                    <th style="text-align: center">Created By</th>
+                    <!-- <th style="text-align: center">Modified Date</th>
+                    <th style="text-align: center">Modified By</th> -->
+                    <th style="text-align: center">Enable</th>
+                    <th style="border-top-right-radius: 10px; text-align: center">Action</th>
+                  </tr>
+                </ng-template>
+              
+                <ng-template pTemplate="body" let-roleDetails let-rowIndex="rowIndex">
+                  <tr>
+                    <td class="fontcolor" style="text-align: center">{{ rowIndex + 1 }}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.roleName }}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.roleId }}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.roleDesc }}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.createdOn}}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.createdBy }}</td>
+                    <!-- <td class="fontcolor" style="text-align: center">{{ roleDetails.modifiedOn}}</td>
+                    <td class="fontcolor" style="text-align: center">{{ roleDetails.modifiedBy }}</td> -->
+                    <td class="fontcolor" style="text-align: center">
+                      <p-checkbox [(ngModel)]="roleDetails.IsActive" [binary]="true" [disabled]="true"></p-checkbox>
+                    </td>
+                    <td class="fontcolor" style="text-align: center">
+                      <div (click)="toggleActions(roleDetails, rowIndex)" [matMenuTriggerFor]="menu">
+                        <i class="menu-icon fa-solid fa-ellipsis-vertical" style="cursor: pointer;"></i>
+                      </div>
+                      <mat-menu #menu="matMenu" class="mt-3">
+                        <button mat-menu-item (click)="copyProduct(roleDetails)" class="border-bottom">
+                          <i class="fa fa-copy" style="cursor: pointer; margin-right: 10px;"></i>Copy
+                        </button>
+                        <button mat-menu-item (click)="editProduct(roleDetails)" class="border-bottom">
+                          <i class="fa fa-edit" style="cursor: pointer; margin-right: 10px;"></i>Edit
+                        </button>
+                        <button mat-menu-item (click)="deleteProduct(roleDetails)">
+                          <i class="fa fa-trash" style="cursor: pointer; margin-right: 10px;"></i>Delete
+                        </button>
+                      </mat-menu>
+                    </td>
+                  </tr>
+                </ng-template>
+              
+                <ng-template pTemplate="emptymessage" let-downTime>
+                  <td colspan="10">
+                    <br />
+                    <nodata-found></nodata-found>
+                  </td>
+                </ng-template>
+              </p-table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,280 @@
+<div class="container-fluid flex justify-content-center theme">
+  <p-sidebar
+    id="sidebar"
+    [(visible)]="visibleSidebar"
+    position="right"
+    [dismissible]="true"
+    (onHide)="visibleSidebar = false"
+  >
+    <div class="row" *ngIf="isDivisionCount">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Division</label>
+        <select
+          (change)="onSelect($event, 'division')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Division</option>
+          <option *ngFor="let dv of division" [value]="dv.key">
+            {{ dv.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.division"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isPlantCount && isPlantVisibility">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Plant</label>
+        <select
+          (change)="onSelect($event, 'plant')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Plant</option>
+          <option *ngFor="let pln of plant" [value]="pln.key">
+            {{ pln.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.plant"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isFocusFactoryCount && isFFVisibility">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Focus Factory</label>
+        <select
+          (change)="onSelect($event, 'focusFactory')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Focus Factory</option>
+          <option *ngFor="let ff of focusFactory" [value]="ff.key">
+            {{ ff.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.focusFactory"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isZoneCount && isZoneVisibility">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Zone</label>
+        <select
+          (change)="onSelect($event, 'zone')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Zone</option>
+          <option *ngFor="let zn of zone" [value]="zn.key">
+            {{ zn.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.zone"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isLineCount && isLineVisibility">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Line</label>
+        <select
+          (change)="onSelect($event, 'line')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Line</option>
+          <option *ngFor="let ln of line" [value]="ln.key">
+            {{ ln.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.line"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isAssetCount" style="display: none">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Asset</label>
+        <select
+          (change)="onSelect($event, 'asset')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Asset</option>
+          <option *ngFor="let ast of asset" [value]="ast.key">
+            {{ ast.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.asset"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isMachineCount">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Machine</label>
+        <select
+          (change)="onSelect($event, 'machine')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Machine</option>
+          <option *ngFor="let mc of machine" [value]="mc.key">
+            {{ mc.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.machine"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isShiftCount && isShiftVisibility">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Shift</label>
+        <select
+          (change)="onSelect($event, 'shift')"
+          class="themedll"
+          style="
+            width: 100%;
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option value="">Select Shift</option>
+          <option *ngFor="let st of shift" [value]="st.key">
+            {{ st.value }}
+          </option>
+        </select>
+        <!-- <app-drowdown
+          [options]="this.shift"
+          (optionSelected)="onSelect($event)"
+        ></app-drowdown> -->
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">Time</label>
+        <select
+          class="themedll"
+          style="
+            width: 100%;
+
+            padding: 9px 5px;
+            font-size: 14px;
+            border-radius: 4px;
+          "
+        >
+          <option>Time</option>
+        </select>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">From Date</label>
+        <input type="date"
+        id="datepicker" class="form-control themedll" style=" display:
+        inline-block; width: 100%; padding: 9px 5px; font-size: 12px; "
+        [(ngModel)]="FromDate" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12" style="text-align: justify">
+        <label class="labelColor">To Date</label>
+        <input type="date"
+        id="datepicker" class="form-control themedll" style=" display:
+        inline-block; width: 100%; padding: 9px 5px; font-size: 12px; "
+        [(ngModel)]="ToDate" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-6">
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="margin-right: 2px; width: 100%"
+          (click)="onViewFilters()"
+        >
+          View
+        </button>
+      </div>
+      <div class="col-md-6">
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="margin-right: 2px; width: 100%"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  </p-sidebar>
+  <!-- <p-button (click)="visibleSidebar = true" icon="pi pi-arrow-right"></p-button> -->
+</div>
+
+<div>
+  <button
+    type="button"
+    class="btn btn-sm btn-primary"
+    (click)="visibleSidebar = true"
+  >
+    Filters &nbsp; &nbsp;<i class="pi pi-filter-fill"></i>
+  </button>
+</div>

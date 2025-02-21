@@ -1,0 +1,48 @@
+<div class="col-12 date-range-container d-flex align-items-center">
+  <div class="col-md-8 col-sm-12 col-xs-12 col-lg-8">
+    <div class="rounded border border-1 p-2">
+      <mat-form-field id="dateRange_selector">
+        <mat-label>{{"DATE_RANGE" | translate }}</mat-label>
+        <mat-date-range-input
+          [formGroup]="rangeForm"
+          [rangePicker]="picker"
+          [max]="maxDate"
+          (click)="onDateRangeChange($event)"
+        >
+          <input
+            matStartDate
+            formControlName="fromDate"
+            placeholder="From date"
+            (ngModelChange)="openDatePicker($event)"
+          />
+          <input
+            matEndDate
+            formControlName="toDate"
+            placeholder="To date"
+            (ngModelChange)="openDatePicker($event)"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 text-center">
+    <div class="d-flex justify-content-end" style="display: flex !important">
+      <button
+        [disabled]="rangeForm?.invalid"
+        pButton
+        pRipple
+        type="button"
+        (click)="onButtonClick()"
+        icon="pi pi-search"
+        class="p-button-rounded no-padding"
+      ></button>
+      <ng-container *ngTemplateOutlet="additionalButtonContent"></ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+body.dark-mode .theme {
+  background-color: #001c57;
+  border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  color: #001c57;
+}
+body.light-mode .theme {
+  background-color: #f2faff;
+  box-shadow: 0px 0px 5px #f2faff;
+  color: #001c57;
+}
+
+body.dark-mode .labelColor {
+  //background-color: white;
+  //border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  color: white;
+}
+body.light-mode .labelColor {
+  //background-color: #f2faff;
+  //box-shadow: 0px 0px 5px #f2faff;
+  color: balck;
+}
+
+body.dark-mode .themedll {
+  background-color: #001c57;
+  color: white;
+  border-radius: 8px;
+  //box-shadow: 0px 0px 5px #f8f8f8;
+  //color: #001c57;
+}
+body.light-mode .themedll {
+  background-color: #f2faff;
+  box-shadow: 0px 0px 5px #f2faff;
+  color: #001c57;
+}
+
