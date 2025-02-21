@@ -10,11 +10,11 @@ import { LoginComponent } from './modules/user/login/login.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login-failed', component: FailedComponent },
-  { path: 'report', component: FloatReportComponent },
   { path: '', redirectTo: 'user/login', pathMatch: 'prefix', },
   { path: '', loadChildren: () => import('./modules/layout/layout.module').then((m) => m.LayoutModule), },
   { path: 'user', loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule), },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'report', component: FloatReportComponent },
 
 ];
 
